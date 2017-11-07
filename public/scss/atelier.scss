@@ -1,1 +1,102 @@
-@import 'all'
+@import "all";
+
+.grille{
+  @include grille();
+}
+
+.row{
+  @include ligne();
+}
+
+
+.col-1{
+  @include posdim(12,1,0);
+}
+
+.col-2{
+  @include posdim(12,2,0);
+}
+
+.col-3{
+  @include posdim(12,3,0);
+}
+
+.col-4{
+  @include posdim(12,4,0);
+}
+
+.col-5{
+  @include posdim(12,5,0);
+}
+
+.col-6{
+  @include posdim(12,6,0);
+}
+
+.col-7{
+  @include posdim(12,7,0);
+}
+
+.col-8{
+  @include posdim(12,8,0);
+}
+
+.col-9{
+  @include posdim(12,9,0);
+}
+
+.col-10{
+  @include posdim(12,10,0);
+}
+
+.col-11{
+  @include posdim(12,11,0);
+}
+
+.col-12{
+  @include posdim(12,12,0);
+}
+
+.offset-1{
+  @include offset(12,1,0);
+}
+
+.offset-2{
+  @include offset(12,2,0);
+}
+
+.offset-3{
+  @include offset(12,3,0);
+}
+
+.offset-4{
+  @include offset(12,4,0);
+}
+
+.offset-5{
+  @include offset(12,5,0);
+}
+
+.offset-6{
+  @include offset(12,6,0);
+}
+
+.offset-7{
+  @include offset(12,7,0);
+}
+
+.offset-8{
+  @include offset(12,8,0);
+}
+
+.offset-9{
+  @include offset(12,9,0);
+}
+
+.offset-10{
+  @include offset(12,10,0);
+}
+
+.offset-11{
+  @include offset(12,11,0);
+}
