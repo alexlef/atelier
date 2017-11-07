@@ -1,0 +1,157 @@
+/*
+
+//---------BOUTON---------//
+
+//par default//
+$blue:red; //couleur du bouton de base
+
+//bouton avec dans l'odre la couleur du bouton puis le couleur au survol et la couleur a l'activation
+
+//BOUTON ROUGE//
+$b_red: ;
+$hover_b_red:;
+$act_b_red: ;
+
+//BOUTON BLEU//
+$b_blue: ;
+$hover_b_blue: ;
+$act_b_blue:;
+
+//BOUTON JAUNE//
+$yell:;
+$hover_b_yell:;
+$act_b_yell:;
+
+//BOUTON VERT//
+$green:;
+$hover_b_green: ;
+$act_b_green: ;
+
+//taille du boutton
+
+//PETIT BOUTON//
+$small: ;
+
+//BOUTON LARGE//
+$large: ;
+
+//BOUTON EXTRA LARGE//
+$xl:;
+
+//bouton avec dans l'odre la couleur du bouton puis le couleur au survol et la couleur a l'activation
+
+//BOUTANT SANS STYLE//
+$flat:;
+$flat_act:;
+$flat_hover:;
+
+//BOUTON AVEC STYLE//
+$fancy_color:; //couleur du bouton
+
+//---------BASE---------//
+
+//TITRE//
+//taille du titre et couleur du titre
+$h1_fs:;
+$h1_color:;
+
+$h2_fs:;
+$h2_color:;
+
+$h3_fs:;
+$h3_color:;
+
+$h4_fs:;
+$h4_color:;
+
+$h5_fs:;
+$h5_color:;
+
+$h6_fs:;
+$h6_color: lightgray;
+
+//sous-titre//
+
+$ss_color:; //couleur du texte
+
+//petite écriture//
+//couleur et taille du texte
+$small_color:;
+$small_fs:;
+
+//couleur du texte de la balise
+$body_color:;
+$mark_backcolor:; // couleur de fond
+$mark_color:;
+$code_color:;
+
+//tableau avec couleur de ligne alterne
+
+$alt_tabL1_backcolor:; //premiere couleur de fond d'une ligne
+$alt_tabL2_backcolor:; // deuxieme couleur de fond d'une ligne
+$alt_tabTH_backcolor:; // couleur de fond des noms de colonnes
+
+//bordure de tableau
+$bordurecom:;
+
+//couleur de fond au survol des ligne du tableau
+$survol_th_backcolor:;
+
+//---------NAV---------//
+
+//NAVBAR
+$nav_color: white; //couleur de fond
+$nav_w: ; // largeur
+$nav_border: dotted 1px black; //bordure
+$nav_lien: 1px bold black; // couleur des liens
+$nav_lien_hover: 1px bold red; //couleur des liens au survol
+//LIEN MORT
+
+$dis_li_color:; //couleur de fond
+$dis_lien_color:; //couleur du lien
+
+//LIEN ACTIF
+
+$active_lien_color:; //couleur de fond
+$active_li_color:; //couleur du lien
+
+//FIL ARIANE
+
+$breadcrumb_img:; //image de fond des liens
+$breadcrumb_h:; //hauteur totale
+$breadcrumb_lien_color:; //couleur du lien
+$breadcrumb_lienhover_color:; // couleur au survol du lien
+
+//PAGINATION
+$pag_color:; //couleur de fond
+$pag_w:; //largeur totale
+$pag_lien_color:; //couleur du lien
+$pag_hover_color:; // couleur au survol du lien
+
+//---------ALERTE---------//
+
+//dans l'odre pour chaque alerte la couleur du fond du paragraphe puis la hauteur et la largeur de celui-ci
+
+//SUCEE
+$suc_backcolor:green !default;
+$suc_h:20% !default;
+$suc_w:80% !default;
+
+//INFORMATION
+$info_backcolor:yellow !default;
+$info_h:20% !default;
+$info_w:80% !default;
+
+//AVERTISSEMENT
+$aver_backcolor:orange !default;
+$aver_h:20% !default;
+$aver_w:80% !default;
+
+//DANGER
+$dg_backcolor:red !default;
+$dg_h:20% !default;
+$dg_w:80% !default;
+
+
+
+*/
