@@ -1,0 +1,167 @@
+$h1_fs:60px !default;
+$h1_color:black !default;
+$h2_fs:50px !default;
+$h2_color:black !default;
+$h3_fs:40px !default;
+$h3_color:black !default;
+$h4_fs:30px !default;
+$h4_color:black !default;
+$h5_fs:20px !default;
+$h5_color:black !default;
+$h6_fs:10px !default;
+$h6_color:black !default;
+$ss_color:grey !default;
+$small_color:grey !default;
+$body_color:black !default;
+$mark_backcolor:yellow !default;
+$mark_color:black !default;
+$code_color:red !default;
+$alt_tabL1_backcolor:red !default;
+$alt_tabL2_backcolor:blue !default;
+$alt_tabTH_backcolor:white !default;
+$bordurecom:1px solid black !default;
+$survol_th_backcolor:green !default;
+$small_fs:10px !default;
+$font:  Verdana, Arial, Helvetica, sans-serif !default;
+
+
+h1{
+	font-size:$h1_fs;
+	color:$h1_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+h2{
+	font-size:$h2_fs;
+	color:$h2_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+h3{
+	font-size:$h3_fs;
+	color:$h3_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+h4{
+	font-size:$h4_fs;
+	color:$h4_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+h5{
+	font-size:$h5_fs;
+	color:$h5_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+h6{
+	font-size:$h6_fs;
+	color:$h6_color;
+	font-weight:bold;
+	font-family: $font;
+}
+
+small{
+	font-size:$small_fs;
+	color:$small_color;
+	font-family: $font;
+}
+
+body{
+	font-size:15px;
+	color:$body_color;
+	font-family: $font;
+
+}
+
+p{
+	margin-bottom:20px;
+}
+
+mark{
+	background-color: $mark_backcolor;
+	color: $mark_color;
+}
+
+del{
+	 text-decoration: line-through;
+}
+
+ins{
+	 text-decoration: underline;
+}
+
+u{
+	 text-decoration: underline;
+}
+
+strong{
+	font-weight: bold;
+}
+
+em{
+	font-style: italic;
+}
+
+abbr{
+	border-bottom: .1em dotted;
+	cursor: help;
+}
+
+ul{
+	display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1 em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+	display: list-item;
+}
+
+li{
+	display: list-item;
+	list-style:disc;
+}
+
+blockquote {
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+code{
+	text-decoration:underline;
+	color:$code_color;
+}
+
+pre {
+    display: block;
+    font-family:  $font;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+kbd {
+    font-family:  $font;;
+}
+
+table, th, td {
+
+  border-collapse: collapse;
+	margin-bottom:20px;
+	margin-top:20px;
+	text-align:center;
+}
+
+img{
+	max-width : 100%;
+}

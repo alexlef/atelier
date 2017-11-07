@@ -1,0 +1,49 @@
+$blue: blue !default;
+$b_red: red !default;
+$hover_b_red: blue !default;
+$b_blue: blue !default;
+$hover_b_blue: green !default;
+$act_b_blue:red !default;
+$act_b_red: black !default;
+$yell: yellow !default;
+$hover_b_yell: blue !default;
+$act_b_yell: red !default;
+$green: green !default;
+$hover_b_green: blue !default;
+$act_b_green: red !default;
+$small: 10% !default;
+$large: 20% !default;
+$xl:100% !default;
+$flat:blue !default;
+$flat_act: blue !default;
+$flat_hover: blue !default;
+$fancy_color: aqua !default;
+
+@mixin struct ($width:inherit,$br:none,$display:inline-block,$margbot:2%,$margtop:2%){
+	width:$width;
+	border-radius:$br;
+	display: $display;
+	margin-bottom:$margbot;
+	margin-top:$margtop;
+}
+
+@mixin txt ($fs:150%,$txtd:none,$txtalign:center,$color:white) {
+	font-size: $fs;
+	text-decoration: $txtd;
+	text-align: $txtalign;
+	color: $color;
+}
+
+@mixin style ($border:none,$padd:2% 2%,$cursor:pointer,$bshad:none) {
+	background-color:$blue;
+	border:$border;
+	padding:$padd;
+	cursor:$cursor;
+	box-shadow:$bshad;
+}
+
+@mixin buttonpers (){
+	@include struct();
+	@include txt();
+	@include style();
+}
