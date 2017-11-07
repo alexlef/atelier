@@ -1,0 +1,32 @@
+@mixin grille ($width:100%,$padd:0 0 0 0,$height:auto){
+  width: $width;
+  padding:$padd;
+  height:$height;
+}
+
+@mixin ligne ($witdh:100%,$display:flex, $flex-dir:row) {
+  width:$witdh;
+  display : $display;
+  flex-direction : $flex-dir;
+}
+
+@mixin posdim ($nb-col,$col,$marg,$flex-grow:0,$flex-shrink:1,$center:auto) {
+
+  $var : 100 - ($nb-col*$marg);
+  $colonne : $var / $nb-col;
+  $res : $colonne * $col;
+
+  flex-basis: 0% + $res;
+  flex-grow : $flex-grow;
+  flex-shrink : $flex-shrink;
+  margin : $center;
+}
+
+@mixin offset ($nb-col,$col,$marg,$margin:auto) {
+  $var : 100 - ($nb-col*$marg);
+  $colonne : $var / $nb-col;
+  $res : $colonne * $col;
+
+  width:0% + $res;
+  margin: $margin;
+}

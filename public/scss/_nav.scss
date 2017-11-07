@@ -1,0 +1,112 @@
+$nav_color: grey !default;
+$nav_w:100% !default;
+$nav_border: 2px solid black !default;
+$nav_lien:white !default;
+$nav_lien_hover:red !default;
+$dis_li_color:black !default;
+$dis_lien_color:grey !default;
+$active_lien_color:blue !default;
+$breadcrumb_img:url("images/fleche.png") !default;
+$pag_color:#F5F5F5 !default;
+$pag_w:99% !default;
+$active_li_color:grey !default;
+$breadcrumb_h:100px !default;
+$breadcrumb_lien_color:white !default;
+$breadcrumb_lienhover_color:red !default;
+$pag_lien_color:grey !default;
+$pag_hover_color:red !default;
+
+.navbar{
+	display:flex;
+	flex:auto;
+	text-decoration:none;
+	justify-content: center;
+	font-size:22px;
+	width:$nav_w;
+	padding-left:0px;
+	background-color:$nav_color;
+
+	li{
+		display:flex;
+		flex:auto;
+		text-decoration:none;
+		align-items: center;
+		border:$nav_border;
+
+			a{
+				text-decoration:none;
+				justify-content: center;
+				align-items: center;
+				color:$nav_lien;
+			}
+			a:hover{
+				color:$nav_lien_hover;
+			}
+
+	}
+}
+
+
+
+li.disable{
+	background-color:$dis_li_color;
+
+	a{
+		color:$dis_lien_color;
+	}
+}
+
+li.active{
+	background-color:$active_li_color;
+
+	a{
+		color: $active_lien_color;
+	}
+}
+
+ul.breadcrumb{
+	display:flex;
+	height:$breadcrumb_h;
+
+	li{
+		list-style:none;
+		background-image:$breadcrumb_img;
+		background-repeat:no-repeat;
+		background-size:100% 100%;
+		margin-right:1%;
+		padding-right:5%;
+
+		a{
+			color:$breadcrumb_lien_color;
+			text-decoration:none;
+			line-height:620%;
+			margin-left:10%;
+			padding-left:7%
+		}
+		a:hover{
+			color:$breadcrumb_lienhover_color;
+		}
+	}
+}
+
+.pagination{
+	display:flex;
+	background-color:$pag_color;
+	width:$pag_w;
+	padding-left:1%;
+	flex:auto;
+
+	li{
+		list-style:none;
+		margin-right:2%;
+
+		a{
+			text-decoration:none;
+			color:$pag_lien_color;
+		}
+		a:hover{
+			color:$pag_hover_color;
+		}
+
+	}
+}
