@@ -33,6 +33,6 @@ Thumbs.db
 start.sh
 
 #Framework
-public/.sass-cache*
+public/.sass-cache
 *.map
 
