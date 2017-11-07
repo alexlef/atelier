@@ -1,36 +1,58 @@
-nav.navbar.navbar-default.navbar-static-top
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(href='/') Mecado
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li(class=(title == 'Home') ? 'active' : null)
-          a(href='/') Home
-        li(class=(title == 'Contact') ? 'active' : null)
-          a(href='/contact') Contact
-      ul.nav.navbar-nav.navbar-right
+.navbar
+
+        li
+          a Mecado.net
+
         if user
-          li.dropdown
-            a.navbar-avatar.dropdown-toggle(href='#', data-toggle='dropdown')
-              if user.picture
-                img(src=user.picture)
-              else
-                img(src=user.gravatar)
-              | <span> #{user.name || user.email || user.id} </span>
-              i.caret
-            ul.dropdown-menu
+          ul#ordiNav.nav-right
+            li#imgOrdi
+                if user.picture
+                  img#imgDropdownOrdi(src=user.picture)
+                else
+                  img#imgDropdownOrdi(src=user.gravatar)
+
+                | <span class="white"> #{user.name || user.email || user.id} </span>
+                i.caret
+
+            ul#ulDrop.dropdownOrdi
               li
                 a(href='/account') My Account
-              li.divider
               li
                 a(href='/logout') Logout
+
+          ul#mobile.nav-right
+            li#imgMobile
+              if user.picture
+                img#imgDropdown(src=user.picture)
+              else
+                img#imgDropdown(src=user.gravatar)
+
+              | <span id="drop"> #{user.name || user.email || user.id} </span>
+              i.caret
+
+            ul#ulDrop.dropdown
+              li
+                a(href='/account') My Account
+              li
+                a(href='/logout') Logout
+
         else
-          li(class=(title == 'Log in') ? 'active' : null)
-            a(href='/login') Log in
-          li(class=(title == 'Sign up') ? 'active' : null)
-            a(href='/signup') Sign up
+          ul#ordi(class=(title == 'Log in') ? 'active' : null).nav-right
+
+            li
+              img(src='img/user.png').img-small
+            li
+              a(href='/login') Log in
+            li
+              | /
+            li
+              a(href='/signup') Sign up
+
+          ul#mobile.nav-right
+            li#imgMobile
+              img#imgDropdown(src='img/dropdown.png')
+            ul#ulDrop.dropdown
+              li
+                a(href='/login') Log in
+              li
+                a(href='/signup') Sign up
