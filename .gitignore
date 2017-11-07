@@ -28,3 +28,11 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
+
+#Nodemon
+start.sh
+
+#Framework
+public/.sass-cache*
+*.map
+
