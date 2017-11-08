@@ -16,19 +16,6 @@ exports.allitems= function(req, res){
         tabitem : tab.models,
         tabimg : t
       });
-      console.log(t[0].id_item)
     });
   });
 }
-
-exports.affliste = function(req, res) {
-  if (req.user){
-
-}
-else{
-  return res.redirect('/login');
-  res.render('account/login',{
-    title: 'Log in'
-});
-}
-};
