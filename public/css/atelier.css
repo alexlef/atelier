@@ -592,4 +592,17 @@ ul.breadcrumb {
   #ordiNav {
     display: none; } }
 
+
+.liste {
+  list-style-type: none; }
+  .liste li {
+    list-style: none; }
+
+.art {
+  height: auto;
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 /*# sourceMappingURL=atelier.css.map */

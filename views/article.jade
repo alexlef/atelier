@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  - var i = 0
+  - each result in tabitem
+    div.art
+      - each res in tabimg
+        if res.id_item == result.attributes.id
+          img(src='img/'+res.nom)
+      ul.liste
+        li='nom : ' +result.attributes.nom
+        li='tarif : '+result.attributes.tarif+'€'
+        a(href=result.attributes.url)
+          li='lien'
+        li='description : '+result.attributes.desc
+          form(method='POST', action='/art')
+            input(type='hidden', name='id', value=result.attributes.id)
+            input(type='submit', value='Ajouter au panier')
+      - i += 1

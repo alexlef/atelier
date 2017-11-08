@@ -117,3 +117,17 @@ border : solid 1px lightgrey;
     display : none;
   }
 }
+
+.liste{
+    list-style-type: none;
+  li{
+    list-style: none;
+  }
+}
+
+.art{
+  height: auto;
+  width: 100%;
+  padding-left:2%;
+  padding-right:2%;
+}
