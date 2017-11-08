@@ -12,7 +12,7 @@ block content
               div= error.msg
 
         form.form-style-9(method='POST', action='/account?_method=PUT')
-          legend Profile Information
+          legend Informations
           br
           .form-group
             label.col-sm-3(for='email') Email
@@ -20,27 +20,27 @@ block content
               input.form-control(type='email', name='email', id='email', value=user.email)
           br
           .form-group
-            label.col-sm-3(for='name') Name
+            label.col-sm-3(for='name') Nom
             .col-sm-7
               input.form-control(type='text', name='name', id='name', value=user.name)
           br
           .form-group
-            label.col-sm-3 Gender
+            label.col-sm-3 Genre
             .col-sm-4
               label.radio-inline.radio.col-sm-4
                 input(type='radio', checked=(user.gender == 'male'), name='gender', value='male', data-toggle='radio')
-                span Male
+                span Homme
               label.radio-inline.col-sm-4
                 input(type='radio', checked=(user.gender == 'female'), name='gender', value='female', data-toggle='radio')
-                span Female
+                span Femme
           br
           .form-group
-            label.col-sm-3(for='location') Location
+            label.col-sm-3(for='location') Localisation
             .col-sm-7
               input.form-control(type='text', name='location', id='location', value=user.location)
           br
           .form-group
-            label.col-sm-3(for='website') Website
+            label.col-sm-3(for='website') Site internet
             .col-sm-7
               input.form-control(type='text', name='website', id='website', value=user.website)
           br
@@ -51,33 +51,33 @@ block content
           br
           .form-group
             .col-sm-offset-3.col-sm-4
-              button.btn.btn-success(type='submit') Update Profile
+              button.btn.btn-success(type='submit') Mettre à jour profil
 
     .panel
       .panel-body
         form.form-style-9(method='POST', action='/account?_method=PUT')
-          legend Change Password
+          legend Changer mot de passe
           br
           .form-group
-            label.col-sm-3(for='password') New Password
+            label.col-sm-3(for='password') Nouveau mot de passe
             .col-sm-7
               input.form-control(type='password', name='password', id='password')
           br
           .form-group
-            label.col-sm-3(for='confirm') Confirm Password
+            label.col-sm-3(for='confirm') Confirmer mot de passe
             .col-sm-7
               input.form-control(type='password', name='confirm', id='confirm')
           br
           .form-group
             .col-sm-4.col-sm-offset-3
-              button.btn.btn-success(type='submit') Change Password
+              button.btn.btn-success(type='submit') Changer mot de passe
 
     .panel
       .panel-body
         form.form-style-9(method='POST', action='/account?_method=DELETE')
-          legend Delete Account
+          legend Supprimer compte
           br
           .form-group
-            p.col-sm-offset-3.col-sm-9 You can delete your account, but keep in mind this action is irreversible.
+            p.col-sm-offset-3.col-sm-9 Vous pouvez supprimer votre compte, mais gardez à l'esprit que cette action est irréversible.
             .col-sm-offset-3.col-sm-9
-              button.btn.btn-danger(type='submit') Delete my account
+              button.btn.btn-danger(type='submit') Supprimer mon compte

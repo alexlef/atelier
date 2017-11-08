@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  a(href='/article?id_liste='+idliste)
+    button(type='button') Ajouter cadeaux
+  a(href='#')
+    button(type='button') Créer cadeaux
+  -each result in tabitem
+    -each res in tabapp
+      if result.attributes.id == res.attributes.id_item
+        if res.attributes.id_liste == idliste
+          div.art
+            div.a
+              - each r in tabimg
+                if r.attributes.id_item == result.attributes.id
+                  img.i(src='img/'+r.attributes.nom)
+            ul.liste
+              li=result.attributes.nom
+              li='Prix : '+result.attributes.tarif+'€'
+              if res.attributes.url != null || res.attributes.url != ''
+                a.lien(href=res.attributes.url)
+                  li='Acheter en magasin'
+              li=result.attributes.desc

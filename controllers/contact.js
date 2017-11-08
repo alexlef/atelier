@@ -20,10 +20,10 @@ exports.contactGet = function(req, res) {
  * POST /contact
  */
 exports.contactPost = function(req, res) {
-  req.assert('name', 'Name cannot be blank').notEmpty();
-  req.assert('email', 'Email is not valid').isEmail();
-  req.assert('email', 'Email cannot be blank').notEmpty();
-  req.assert('message', 'Message cannot be blank').notEmpty();
+  req.assert('name', 'Nom ne peut pas être vide.').notEmpty();
+  req.assert('email', 'Email invalide.').isEmail();
+  req.assert('email', 'Email ne peut pas être vide.').notEmpty();
+  req.assert('message', 'Message ne peut pas être vide.').notEmpty();
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   var errors = req.validationErrors();
@@ -41,7 +41,7 @@ exports.contactPost = function(req, res) {
   };
 
   transporter.sendMail(mailOptions, function(err) {
-    req.flash('success', { msg: 'Thank you! Your feedback has been submitted.' });
+    req.flash('success', { msg: 'Je vous remercie! Vos commentaires ont été soumis.' });
     res.redirect('/contact');
   });
 };

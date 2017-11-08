@@ -4,7 +4,7 @@ block content
   .container
     .panel
       .panel-heading
-        h3.panel-title Contact Form
+        h3.panel-title Formulaire de contact
       .panel-body
         if messages.success
           .alert.alert-success(role='alert')
@@ -17,7 +17,7 @@ block content
 
         form.form-style-9(method='POST')
           .form-group
-            label.col-sm-2(for='name') Name
+            label.col-sm-2(for='name') Nom
             .col-sm-8
               input.form-control(type='text', name='name', id='name', autofocus=true)
           .form-group
@@ -25,9 +25,9 @@ block content
             .col-sm-8
               input.form-control(type='email', name='email', id='email')
           .form-group
-            label.col-sm-2(for='message') Body
+            label.col-sm-2(for='message') Message
             .col-sm-8
               textarea.form-control(name='message', id='message', rows='7')
           .form-group
             .col-sm-offset-2.col-sm-8
-              button.btn.btn-success(type='submit') Send
+              button.btn.btn-success(type='submit') Envoyer

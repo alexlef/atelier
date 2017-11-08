@@ -3,6 +3,7 @@ var Item = require('../models/Item');
 var Itemimg = require('../models/itemimg');
 var List = require('../models/list');
 var uuid = require('uuid');
+var App = require('../models/Appartient');
 
 exports.mesList = function(req,res){
 
@@ -25,7 +26,6 @@ exports.mesList = function(req,res){
 }
 
 exports.creerList = function(req,res){
-
   if(req.user){
     res.render('creerList',{
       title: 'Creer Liste'
@@ -49,13 +49,38 @@ exports.addList = function(req, res){
     destinataire : req.param('destinataire'),
     dateLim : req.param('date')}).save();
 
-  res.render('home',{
-    title: ''
-  });
+    if (req.user){
+      List.forge().query(function (qb) {
+        qb.where('list.email', '=', req.user.attributes.email);
+      }).fetchAll().then(function(tab) {
+        res.render('mesList',{
+          title: 'MesList',
+          tabList : tab.models
+        });
+      });
+    }
+    else{
+      return res.redirect('/login');
+      res.render('account/login',{
+        title: 'Log in'
+      });
+    }
 }
 
 exports.affliste = function(req, res) {
-
+Item.fetchAll().then(function(t){
+  App.fetchAll().then(function(tab){
+    Itemimg.fetchAll().then(function(ta){
+      res.render('list',{
+        title: 'Liste',
+        tabapp : tab.models,
+        tabitem : t.models,
+        tabimg : ta.models,
+        idliste : req.param('id_liste')
+      });
+    });
+  });
+});
 }
 
 exports.addArticle = function(req,res){

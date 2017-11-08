@@ -75,6 +75,7 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 
 //alex
 app.get('/article', HomeController.allitems);
+app.post('/addarticle', HomeController.addart);
 
 //addArticle
 app.get('/addArticle', ListController.addArticle);
@@ -85,7 +86,6 @@ app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
-
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
