@@ -551,6 +551,8 @@ ul.breadcrumb {
 
 #ulDrop {
   margin-right: 0; }
+  #ulDrop > li {
+    padding: 10px; }
 
 #imgMobile {
   justify-content: flex-end; }
@@ -560,9 +562,6 @@ ul.breadcrumb {
 
 #ordiNav {
   display: block; }
-
-#ulDrop > li {
-  padding: 10px; }
 
 .dropdownOrdi {
   padding: 10px;
@@ -578,6 +577,7 @@ ul.breadcrumb {
   color: white; }
 
 /*-------------------------------------------*/
+/*---------------Liste-------------*/
 .liste {
   list-style-type: none;
   display: inline-block;
@@ -654,6 +654,23 @@ ul.breadcrumb {
   border-radius: 20px;
   margin-left: 1%;
   margin-right: 1%; }
+
+.myList {
+  background-color: gray;
+  color: white;
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  border-radius: 10px; }
+  .myList li {
+    list-style: none; }
+  .myList :hover {
+    color: red; }
 
 /* Accueil */
 h1 {
