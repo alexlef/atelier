@@ -15,8 +15,10 @@ dotenv.load();
 
 // Controllers
 var HomeController = require('./controllers/home');
+var ListController = require('./controllers/list');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var ajoutArticleController = require('./controllers/ajoutArticle');
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -58,10 +60,17 @@ app.get('/reset/:token', userController.resetGet);
 app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+app.get('/addArticle', ajoutArticleController.form);
 
 //alex
 app.get('/article', HomeController.allitems);
 app.post('/addarticle', HomeController.addart);
+
+//list
+app.get('/creerList', ListController.creerList);
+app.post('/valideList', ListController.addList);
+app.get('/mesList', ListController.mesList);
+app.get('/liste', ListController.affliste);
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
