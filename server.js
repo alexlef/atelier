@@ -62,12 +62,12 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 
 //alex
 app.get('/article', HomeController.allitems);
-app.get('/liste', HomeController.affliste);
 
 //list
 app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
+app.get('/liste', HomeController.affliste);
 
 // Production error handler
 if (app.get('env') === 'production') {

@@ -15,3 +15,7 @@ $(function() {
 						$('.dropdown').slideToggle();
 	});
 });
+
+$(document).ready(function() {
+  $('.adj').val('A\nJ\nO\nU\nT\nE\nR');   
+});
