@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .container-fluidZZ
+    if messages.error
+      .alert.alert-danger(role='alert')
+        for error in messages.error
+          div= error.msg
+    if messages.success
+      .alert.alert-success(role='alert')
+        for success in messages.success
+          div= success.msg
+    if messages.info
+      .alert.alert-info(role='alert')
+        for info in messages.info
+          div= info.msg
+
+
+    form.form-style-9(action = '/valideList', method = 'post', enctype="multipart/form-data")
+            div
+              label(for='brand') Nom de la liste :
+              input#brand(type='text' name = "name" value="" required autofocus)
+            div
+              label(for='desc') Description :
+              <textarea name="desc" cols="35" wrap="soft"></textarea>
+            div
+              label(for='size') Date limite :
+              input#size(type="date" name = "date" value="" required)
+            div
+              label(for='Color') destinataire :
+              input#color(type='text' name = "destinataire" value="" required)
+            div
+              input(type='submit', value='Valider').btn.btn-primary

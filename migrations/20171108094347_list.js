@@ -12,11 +12,9 @@ exports.up = function(knex, Promise) {
       table.timestamps();
     }).then(function () {
       return knex("list").insert([
-        {email: "test@test.fr", titre: "Mariage hugo et juliette les amoureux", desc : "Liste pour le mariage de notre couple préféré hugo et juliette ! Puissent-ils avoir beaucoup de cadeaux", dateLim : "16/12/2017", destinataire : "Hugo et Juliette"},
+        {email: "test@test.fr", titre: "Mariage hugo et juliette les amoureux", desc : "Liste pour le mariage de notre couple préféré hugo et juliette ! Puissent-ils avoir beaucoup de cadeaux", dateLim : "2017-12-16", destinataire : "Hugo et Juliette"},
       ]);
     }),
-
-
   ]);
 };
 

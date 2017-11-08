@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  - each res in tabList
+    div.list
+      li='nom : ' +res.attributes.desc
+
+  div
+    h1 Créer votre liste de cadeaux
+    a(href='/creerList')
+      img.accueil(src='img/rond.png' onmouseover="this.src='img/rond2.png'" onmouseout="this.src='img/rond.png'")
