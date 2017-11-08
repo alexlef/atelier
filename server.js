@@ -61,6 +61,7 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 
 //alex
 app.get('/article', HomeController.allitems);
+app.post('/addarticle', HomeController.addart);
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
