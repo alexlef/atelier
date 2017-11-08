@@ -66,7 +66,7 @@ app.get('/liste', HomeController.affliste);
 
 //list
 app.get('/creerList', ListController.creerList);
-app.get('/valideList', ListController.addList);
+app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 
 // Production error handler

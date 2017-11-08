@@ -39,7 +39,18 @@ exports.creerList = function(req,res){
 }
 
 exports.addList = function(req, res){
-  
+
+  new List({
+    email: req.user.attributes.email,
+    titre: req.param('titre'),
+    titre: req.param('nom'),
+    desc : req.param('desc'),
+    destinataire : req.param('destinataire'),
+    dateLim : req.param('date')}).save();
+
+  res.render('home',{
+    title: ''
+  });
 }
 
 exports.affliste = function(req, res) {

@@ -16,18 +16,18 @@ block content
           div= info.msg
 
 
-    form.form-style-9(action = '/valideList', method = 'post', enctype="multipart/form-data")
+    form.form-style-9(action = '/valideList', method = 'POST')
             div
-              label(for='brand') Nom de la liste :
-              input#brand(type='text' name = "name" value="" required autofocus)
+              label(for='titre') Titre de la liste :
+              input#titre(type='text' name = "titre" value="" required autofocus)
             div
               label(for='desc') Description :
-              <textarea name="desc" cols="35" wrap="soft"></textarea>
+              <textarea id="desc" name="desc" cols="35" wrap="soft"></textarea>
             div
-              label(for='size') Date limite :
-              input#size(type="date" name = "date" value="" required)
+              label(for='date') Date limite :
+              input#date(type="date" name = "date" value="" required)
             div
-              label(for='Color') destinataire :
-              input#color(type='text' name = "destinataire" value="" required)
+              label(for='dest') destinataire :
+              input#dest(type='text' name = "destinataire" value="" required)
             div
-              input(type='submit', value='Valider').btn.btn-primary
+              input(type='submit', value='Valider')
