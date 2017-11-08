@@ -518,15 +518,15 @@ ul.breadcrumb {
   width: 100%;
   margin: auto; }
 
+/*---------------------Navbar------------*/
 .navbar {
   height: 60px; }
-
-.navbar ul, .navbar li {
-  margin: 0;
-  margin-right: 5px;
-  padding: 0;
-  border: none;
-  list-style-type: none; }
+  .navbar ul, .navbar li {
+    margin: 0;
+    margin-right: 5px;
+    padding: 0;
+    border: none;
+    list-style-type: none; }
 
 #mobile {
   display: none; }
@@ -535,11 +535,10 @@ ul.breadcrumb {
   display: none;
   background-color: grey;
   margin-right: 0px; }
-
-.dropdown li {
-  justify-content: center;
-  margin-right: 0;
-  border: solid 1px lightgrey; }
+  .dropdown li {
+    justify-content: center;
+    margin-right: 0;
+    border: solid 1px lightgrey; }
 
 #drop {
   color: white; }
@@ -570,11 +569,10 @@ ul.breadcrumb {
   display: none;
   background-color: grey;
   margin-right: 0px; }
-
-.dropdownOrdi li {
-  justify-content: center;
-  margin-right: 0;
-  border: solid 1px lightgrey; }
+  .dropdownOrdi li {
+    justify-content: center;
+    margin-right: 0;
+    border: solid 1px lightgrey; }
 
 .white {
   color: white; }
@@ -591,8 +589,7 @@ ul.breadcrumb {
 
   #ordiNav {
     display: none; } }
-
-
+/*-------------------------------------------*/
 .liste {
   list-style-type: none; }
   .liste li {
@@ -602,7 +599,6 @@ ul.breadcrumb {
   height: auto;
   width: 100%;
   padding-left: 2%;
-  padding-right: 2%;
-}
+  padding-right: 2%; }
 
 /*# sourceMappingURL=atelier.css.map */

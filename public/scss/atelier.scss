@@ -24,16 +24,17 @@ $class-offset: offset !default;
   }
 }
 
+/*---------------------Navbar------------*/
 .navbar{
   height : 60px;
-}
 
-.navbar ul, .navbar li  {
+ ul, li  {
   margin : 0;
   margin-right : 5px;
   padding : 0;
   border : none;
   list-style-type: none;
+  }
 }
 
 #mobile{
@@ -44,12 +45,12 @@ $class-offset: offset !default;
     display : none;
     background-color: grey;
     margin-right : 0px;
-}
 
-.dropdown li{
-  justify-content: center;
-  margin-right : 0;
-  border : solid 1px lightgrey;
+    li{
+      justify-content: center;
+      margin-right : 0;
+      border : solid 1px lightgrey;
+    }
 }
 
 #drop{
@@ -89,12 +90,12 @@ $class-offset: offset !default;
   display : none;
   background-color: grey;
   margin-right : 0px;
-}
 
-.dropdownOrdi li{
-justify-content: center;
-margin-right : 0;
-border : solid 1px lightgrey;
+  li{
+    justify-content: center;
+    margin-right : 0;
+    border : solid 1px lightgrey;
+  }
 }
 
 .white{
@@ -117,6 +118,8 @@ border : solid 1px lightgrey;
     display : none;
   }
 }
+
+/*-------------------------------------------*/
 
 .liste{
     list-style-type: none;
