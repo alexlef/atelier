@@ -10,23 +10,23 @@ block content
               div= error.msg
 
         form.form-style-9(method='POST')
-          legend Log In
+          legend Connexion
           br
           .form-group
             label.control-label(for='email') Email
             input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true)
           br
           .form-group
-            label.control-label(for='password') Password
-            input.form-control(type='password', name='password', id='password', placeholder='Password')
+            label.control-label(for='password') Mot de passe
+            input.form-control(type='password', name='password', id='password', placeholder='Mot de passe')
           br
           .form-group
             a(href='/forgot')
-              strong Forgot your password?
-          button.btn.btn-success(type='submit') Log in
+              strong Mot de passe oublié?
+          button.btn.btn-success(type='submit') Se connecter
 
         .btn-toolbar.text-center
 
-    p.text-center Don't have an account?&nbsp;
+    p.text-center Pas de compte?
       a(href='/signup')
-        strong Sign up
+        strong Inscription

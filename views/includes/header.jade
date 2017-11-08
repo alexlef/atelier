@@ -16,11 +16,11 @@
 
             ul#ulDrop.dropdownOrdi
               li
-                a(href='/account') My Account
+                a(href='/account') Mon compte
               li
-                a(href='/mesList') My list
+                a(href='/mesList') Mes listes
               li
-                a(href='/logout') Logout
+                a(href='/logout') Déconnexion
 
           ul#mobile.nav-right
             li#imgMobile
@@ -34,11 +34,11 @@
 
             ul#ulDrop.dropdown
               li
-                a(href='/account') My Account
+                a(href='/account') Mon compte
               li
-                a(href='/mesList') My list
+                a(href='/mesList') Mes listes
               li
-                a(href='/logout') Logout
+                a(href='/logout') Déconnexion
 
         else
           ul#ordi(class=(title == 'Log in') ? 'active' : null).nav-right
@@ -46,17 +46,17 @@
             li
               img(src='img/user.png').img-small
             li
-              a(href='/login') Log in
+              a(href='/login') Se connecter
             li
               | /
             li
-              a(href='/signup') Sign up
+              a(href='/signup') S'inscrire
 
           ul#mobile.nav-right
             li#imgMobile
               img#imgDropdown(src='img/dropdown.png')
             ul#ulDrop.dropdown
               li
-                a(href='/login') Log in
+                a(href='/login') Se connecter
               li
-                a(href='/signup') Sign up
+                a(href='/signup') S'inscrire
