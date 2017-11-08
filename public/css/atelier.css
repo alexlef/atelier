@@ -551,7 +551,8 @@ ul.breadcrumb {
 
 #ulDrop {
   margin-right: 0;
-  position: relative; }
+  position: relative;
+  z-index: 100; }
   #ulDrop > li {
     padding: 10px; }
 

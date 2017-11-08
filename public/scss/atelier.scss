@@ -68,6 +68,7 @@ $class-offset: offset !default;
 #ulDrop{
   margin-right : 0;
   position: relative;
+  z-index: 100;
   > li{
     padding : 10px;
   }
