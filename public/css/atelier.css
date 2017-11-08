@@ -511,4 +511,15 @@ ul.breadcrumb {
   width: 91.6666666667%;
   margin: auto; }
 
+.liste {
+  list-style-type: none; }
+  .liste li {
+    list-style: none; }
+
+.art {
+  height: auto;
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%; }
+
 /*# sourceMappingURL=atelier.css.map */
