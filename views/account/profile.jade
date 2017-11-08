@@ -2,8 +2,6 @@ extends ../layout
 
 block content
   .container
-    .panel
-      .panel-body
         if messages.success
           .alert.alert-success(role='alert')
             for success in messages.success
@@ -13,16 +11,19 @@ block content
             for error in messages.error
               div= error.msg
 
-        form.form-horizontal(method='POST', action='/account?_method=PUT')
+        form.form-style-9(method='POST', action='/account?_method=PUT')
           legend Profile Information
+          br
           .form-group
             label.col-sm-3(for='email') Email
             .col-sm-7
               input.form-control(type='email', name='email', id='email', value=user.email)
+          br
           .form-group
             label.col-sm-3(for='name') Name
             .col-sm-7
               input.form-control(type='text', name='name', id='name', value=user.name)
+          br
           .form-group
             label.col-sm-3 Gender
             .col-sm-4
@@ -32,49 +33,50 @@ block content
               label.radio-inline.col-sm-4
                 input(type='radio', checked=(user.gender == 'female'), name='gender', value='female', data-toggle='radio')
                 span Female
+          br
           .form-group
             label.col-sm-3(for='location') Location
             .col-sm-7
               input.form-control(type='text', name='location', id='location', value=user.location)
+          br
           .form-group
             label.col-sm-3(for='website') Website
             .col-sm-7
               input.form-control(type='text', name='website', id='website', value=user.website)
+          br
           .form-group
             label.col-sm-3 Gravatar
             .col-sm-4
               img(src=user.gravatar, class='profile', width='100', height='100')
+          br
           .form-group
             .col-sm-offset-3.col-sm-4
               button.btn.btn-success(type='submit') Update Profile
 
     .panel
       .panel-body
-        form.form-horizontal(method='POST', action='/account?_method=PUT')
+        form.form-style-9(method='POST', action='/account?_method=PUT')
           legend Change Password
+          br
           .form-group
             label.col-sm-3(for='password') New Password
             .col-sm-7
               input.form-control(type='password', name='password', id='password')
+          br
           .form-group
             label.col-sm-3(for='confirm') Confirm Password
             .col-sm-7
               input.form-control(type='password', name='confirm', id='confirm')
+          br
           .form-group
             .col-sm-4.col-sm-offset-3
               button.btn.btn-success(type='submit') Change Password
 
     .panel
       .panel-body
-        .form-horizontal
-          legend Linked Accounts
-          .form-group
-            .col-sm-offset-3.col-sm-4
-
-    .panel
-      .panel-body
-        form.form-horizontal(method='POST', action='/account?_method=DELETE')
+        form.form-style-9(method='POST', action='/account?_method=DELETE')
           legend Delete Account
+          br
           .form-group
             p.col-sm-offset-3.col-sm-9 You can delete your account, but keep in mind this action is irreversible.
             .col-sm-offset-3.col-sm-9
