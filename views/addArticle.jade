@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+    form.form-style-9(action = '/addArticle', method = 'post')
+      div
+        label(for='nom') Nom de l'article :
+        input#nom(type='text' required autofocus)
+      div
+        label(for='description') Description :
+        input#description(type='text' required)
+      div
+        label(for='tarif') Tarif:
+        input#tarif(type='number' required)
+      div
+        label(for='URL') URL :
+        input#URL(type='text')
+      div
+        label(for='Image') Image :
+        input#image(type='file' name='image' value="")
+
+      div
+        button#addImage X
+
+      br
+      div
+        input(type='submit', value='Valider')
