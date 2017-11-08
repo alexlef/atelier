@@ -9,23 +9,22 @@ block content
             for error in messages.error
               div= error.msg
 
-        form(method='POST')
+        form.form-style-9(method='POST')
           legend Create an account
+          br
           .form-group
             label(for='name') Name
             input.form-control(type='text', name='name', id='name', placeholder='Name', autofocus=true)
+          br
           .form-group
             label(for='email') Email
             input.form-control(type='email', name='email', id='email', placeholder='Email')
+          br
           .form-group
             label(for='password') Password
             input.form-control(type='password', name='password', id='password', placeholder='Password')
-          .form-group
-            small.text-muted By signing up, you agree to the <a href="/">Terms of Service</a>.
           button.btn.btn-success(type='submit') Create an account
 
-        .hr-title
-          span or
 
         .btn-toolbar.text-center
 
