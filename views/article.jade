@@ -10,11 +10,11 @@ block content
             img.i(src='img/'+res.nom)
       ul.liste
         li=result.attributes.nom
-        li='prix : '+result.attributes.tarif+'€'
+        li='Prix : '+result.attributes.tarif+'€'
         a.lien(href=result.attributes.url)
-          li='acheter en magasin'
+          li='Acheter en magasin'
         li=result.attributes.desc
-      form.ajout(method='POST', action='#')
+      form.ajout(method='POST', action='/article')
         input(type='hidden', name='id', value=result.attributes.id)
         input.adj.inp(type='submit')
       if i < 7

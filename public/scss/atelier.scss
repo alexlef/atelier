@@ -102,23 +102,6 @@ $class-offset: offset !default;
   color : white;
 }
 
-@media only screen and (max-width:800px) {
-  #mobile{
-    display : block;
-    position : absolute;
-    width : 100%;
-    margin : 0;
-  }
-
-  #ordi{
-    display : none;
-  }
-
-  #ordiNav{
-    display : none;
-  }
-}
-
 /*-------------------------------------------*/
 
 .liste{
@@ -285,4 +268,40 @@ h1{
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
+}
+
+
+@media only screen and (max-width:800px) {
+  #mobile{
+    display : block;
+    position : absolute;
+    width : 100%;
+    margin : 0;
+  }
+
+  #ordi{
+    display : none;
+  }
+
+  #ordiNav{
+    display : none;
+  }
+
+  .liste{
+    display: none;
+  }
+
+  .a{
+    width:80%;
+  }
+
+  .art{
+    border:none;
+  }
+  .inp{
+    margin-left: 0%;
+  }
+  .ajout{
+    width: 20%;
+  }
 }
