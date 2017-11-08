@@ -67,7 +67,7 @@ app.get('/article', HomeController.allitems);
 app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
-app.get('/liste', HomeController.affliste);
+app.get('/liste', ListController.affliste);
 
 // Production error handler
 if (app.get('env') === 'production') {
