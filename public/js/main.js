@@ -14,8 +14,16 @@ $(function() {
 	$('#imgDropdownOrdi').on('click touch', function(e){
 						$('.dropdown').slideToggle();
 	});
+
+	$i = 2;
+	$('#addImage').on('click touch',function(e){
+						if($i<4){
+							$('<br><input id=\"image\" type=\'file\' name=\'image'+ $i +' \' value=\"\"></input>').insertBefore($('#addImage'));
+							$i += 1;
+						}
+	});
 });
 
 $(document).ready(function() {
-  $('.adj').val('A\nJ\nO\nU\nT\nE\nR');   
+  $('.adj').val('A\nJ\nO\nU\nT\nE\nR');
 });
