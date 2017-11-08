@@ -31,6 +31,7 @@ var HomeController = require('./controllers/home');
 var ListController = require('./controllers/list');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var ajoutArticleController = require('./controllers/ajoutArticle');
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -72,6 +73,7 @@ app.get('/reset/:token', userController.resetGet);
 app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+app.get('/addArticle', ajoutArticleController.form);
 
 //alex
 app.get('/article', HomeController.allitems);
