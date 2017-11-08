@@ -16,6 +16,7 @@ block content
         li=result.attributes.desc
       form.ajout(method='POST', action='/addarticle')
         input(type='hidden', name='id', value=result.attributes.id)
+        input(type='hidden', name='idliste', value=idliste)
         input.adj.inp(type='submit')
       if i < 7
         - i += 1

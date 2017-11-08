@@ -4,7 +4,7 @@ var bookshelf = require('../config/bookshelf');
 
 var Appartient = bookshelf.Model.extend({
   tableName: 'appartient',
-  hasTimestamps: true
+  hasTimestamps: false
 
 
 

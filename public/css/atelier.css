@@ -550,7 +550,8 @@ ul.breadcrumb {
   width: 60px; }
 
 #ulDrop {
-  margin-right: 0; }
+  margin-right: 0;
+  position: relative; }
   #ulDrop > li {
     padding: 10px; }
 

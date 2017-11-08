@@ -15,20 +15,14 @@ exports.allitems= function(req, res){
       res.render('article', {
         title: 'article',
         tabitem : tab.models,
-        tabimg : t
+        tabimg : t,
+        idliste : req.param('id_liste')
       });
     });
   });
 }
 
 exports.addart = function(req, res) {
-  Item.fetchAll().then(function(tab){
-    Itemimg.query().select().then(function(t) {
-      res.render('article', {
-        title: 'article',
-        tabitem : tab.models,
-        tabimg : t
-      });
-    });
-  });
+  new App ({id_liste : req.param("idliste"),id_item : req.param("id")}).save(null,{method:"insert"});
+  res.redirect('/article?id_liste='+req.param('idliste'));
 };
