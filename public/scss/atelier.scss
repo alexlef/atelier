@@ -100,3 +100,17 @@
 .offset-11{
   @include offset(12,11,0);
 }
+
+.liste{
+    list-style-type: none;
+  li{
+    list-style: none;
+  }
+}
+
+.art{
+  height: auto;
+  width: 100%;
+  padding-left:2%;
+  padding-right:2%;
+}
