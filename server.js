@@ -15,6 +15,7 @@ dotenv.load();
 
 // Controllers
 var HomeController = require('./controllers/home');
+var ListController = require('./controllers/list');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 
@@ -62,6 +63,11 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 //alex
 app.get('/article', HomeController.allitems);
 app.get('/liste', HomeController.affliste);
+
+//list
+app.get('/creerList', ListController.creerList);
+app.get('/mesList', ListController.mesList);
+
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
