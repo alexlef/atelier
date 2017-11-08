@@ -1,8 +1,4 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -318,6 +314,10 @@ table, th, td {
 img {
   max-width: 100%; }
 
+.img-small {
+  max-width: 20px;
+  margin-right: 5px; }
+
 .navbar {
   display: flex;
   flex: auto;
@@ -384,6 +384,9 @@ ul.breadcrumb {
       color: grey; }
     .pagination li a:hover {
       color: red; }
+
+.nav-right {
+  display: flex; }
 
 .grille {
   width: 100%;
@@ -511,6 +514,82 @@ ul.breadcrumb {
   width: 91.6666666667%;
   margin: auto; }
 
+.offset-12 {
+  width: 100%;
+  margin: auto; }
+
+/*---------------------Navbar------------*/
+.navbar {
+  height: 60px; }
+  .navbar ul, .navbar li {
+    margin: 0;
+    margin-right: 5px;
+    padding: 0;
+    border: none;
+    list-style-type: none; }
+
+#mobile {
+  display: none; }
+
+.dropdown {
+  display: none;
+  background-color: grey;
+  margin-right: 0px; }
+  .dropdown li {
+    justify-content: center;
+    margin-right: 0;
+    border: solid 1px lightgrey; }
+
+#drop {
+  color: white; }
+
+#imgDropdown {
+  width: 60px; }
+
+#imgDropdownOrdi {
+  width: 60px; }
+
+#ulDrop {
+  margin-right: 0; }
+
+#imgMobile {
+  justify-content: flex-end; }
+
+#imgOrdi {
+  justify-content: flex-end; }
+
+#ordiNav {
+  display: block; }
+
+#ulDrop > li {
+  padding: 10px; }
+
+.dropdownOrdi {
+  padding: 10px;
+  display: none;
+  background-color: grey;
+  margin-right: 0px; }
+  .dropdownOrdi li {
+    justify-content: center;
+    margin-right: 0;
+    border: solid 1px lightgrey; }
+
+.white {
+  color: white; }
+
+@media only screen and (max-width: 800px) {
+  #mobile {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: 0; }
+
+  #ordi {
+    display: none; }
+
+  #ordiNav {
+    display: none; } }
+/*-------------------------------------------*/
 .liste {
   list-style-type: none; }
   .liste li {

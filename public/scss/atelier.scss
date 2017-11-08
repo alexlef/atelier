@@ -8,98 +8,118 @@
   @include ligne();
 }
 
+$class-col: col !default;
+$class-offset: offset !default;
 
-.col-1{
-  @include posdim(12,1,0);
+@for $i from 1 through 12{
+  .#{$class-col}-#{$i}{
+    @include posdim(12,$i,0);
+  }
 }
 
-.col-2{
-  @include posdim(12,2,0);
+
+@for $i from 1 through 12{
+  .#{$class-offset}-#{$i}{
+    @include offset(12,$i,0);
+  }
 }
 
-.col-3{
-  @include posdim(12,3,0);
+/*---------------------Navbar------------*/
+.navbar{
+  height : 60px;
+
+ ul, li  {
+  margin : 0;
+  margin-right : 5px;
+  padding : 0;
+  border : none;
+  list-style-type: none;
+  }
 }
 
-.col-4{
-  @include posdim(12,4,0);
+#mobile{
+  display: none;
 }
 
-.col-5{
-  @include posdim(12,5,0);
+.dropdown{
+    display : none;
+    background-color: grey;
+    margin-right : 0px;
+
+    li{
+      justify-content: center;
+      margin-right : 0;
+      border : solid 1px lightgrey;
+    }
 }
 
-.col-6{
-  @include posdim(12,6,0);
+#drop{
+  color : white;
 }
 
-.col-7{
-  @include posdim(12,7,0);
+#imgDropdown{
+  width : 60px;
 }
 
-.col-8{
-  @include posdim(12,8,0);
+#imgDropdownOrdi{
+  width : 60px;
 }
 
-.col-9{
-  @include posdim(12,9,0);
+#ulDrop{
+  margin-right : 0;
 }
 
-.col-10{
-  @include posdim(12,10,0);
+#imgMobile{
+  justify-content: flex-end;
 }
 
-.col-11{
-  @include posdim(12,11,0);
+#imgOrdi{
+  justify-content: flex-end;
 }
 
-.col-12{
-  @include posdim(12,12,0);
+#ordiNav{
+  display : block;
 }
 
-.offset-1{
-  @include offset(12,1,0);
+#ulDrop > li{
+  padding : 10px;
 }
 
-.offset-2{
-  @include offset(12,2,0);
+.dropdownOrdi{
+  padding: 10px;
+  display : none;
+  background-color: grey;
+  margin-right : 0px;
+
+  li{
+    justify-content: center;
+    margin-right : 0;
+    border : solid 1px lightgrey;
+  }
 }
 
-.offset-3{
-  @include offset(12,3,0);
+.white{
+  color : white;
 }
 
-.offset-4{
-  @include offset(12,4,0);
+@media only screen and (max-width:800px) {
+  #mobile{
+    display : block;
+    position : absolute;
+    width : 100%;
+    margin : 0;
+  }
+
+  #ordi{
+    display : none;
+  }
+
+  #ordiNav{
+    display : none;
+  }
 }
 
-.offset-5{
-  @include offset(12,5,0);
-}
-
-.offset-6{
-  @include offset(12,6,0);
-}
-
-.offset-7{
-  @include offset(12,7,0);
-}
-
-.offset-8{
-  @include offset(12,8,0);
-}
-
-.offset-9{
-  @include offset(12,9,0);
-}
-
-.offset-10{
-  @include offset(12,10,0);
-}
-
-.offset-11{
-  @include offset(12,11,0);
-}
+/*-------------------------------------------*/
 
 .liste{
     list-style-type: none;
