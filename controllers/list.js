@@ -1,5 +1,6 @@
 var bookshelf = require('../config/bookshelf');
 var Item = require('../models/Item');
+var ItemCree = require('../models/ItemCree');
 var Itemimg = require('../models/itemimg');
 var List = require('../models/list');
 var uuid = require('uuid');
@@ -24,6 +25,7 @@ exports.mesList = function(req,res){
     });
   }
 }
+
 
 exports.creerList = function(req,res){
   if(req.user){
@@ -91,8 +93,10 @@ exports.addArticle = function(req,res){
 
 exports.valideArticle = function(req,res){
 
-  var item = new Item({
-      nom : req.param('nom'),
+  var name = req.param('nom') +  uuid.v4();
+
+  var item = new ItemCree({
+      nom : name,
       desc: req.param('desc'),
       tarif: req.param('tarif')});
 
@@ -102,31 +106,33 @@ exports.valideArticle = function(req,res){
 
   item.save();
 
-  var id = item.get('id');
+  ItemCree.where('nom', name).fetch().then(function(item) {
 
-  if(req.files[0]){
-    new Itemimg({
+    var id = item.attributes.id;
+
+    if(req.files[0]){
+      new Itemimg({
         id_item : id,
         nom : req.files[0].filename
-    }).save();
-  }
+      }).save();
+    }
 
-  if(req.files[1]){
-    new Itemimg({
-      id_item : id,
-      nom : req.files[1].filename
-    }).save();
-  }
+    if(req.files[1]){
+      new Itemimg({
+        id_item : id,
+        nom : req.files[1].filename
+      }).save();
+    }
 
-  if(req.files[2]){
-   new Itemimg({
-      id_item : id,
-      nom : req.files[2].filename
-    }).save();
-  }
+    if(req.files[2]){
+      new Itemimg({
+        id_item : id,
+        nom : req.files[2].filename
+      }).save();
+    }
+  });
 
-
-  res.render('mesList',{
+  res.render('home',{
     title: 'mesList'
   });
 }
