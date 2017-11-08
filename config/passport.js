@@ -19,12 +19,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
     .fetch()
     .then(function(user) {
       if (!user) {
-        return done(null, false, { msg: 'The email address ' + email + ' is not associated with any account. ' +
-        'Double-check your email address and try again.' });
+        return done(null, false, { msg: 'L email' + email + ' n est associé avec aucun compte. ' +
+        'Vérifier votre adresse mail et réessayer.' });
       }
       user.comparePassword(password, function(err, isMatch) {
         if (!isMatch) {
-          return done(null, false, { msg: 'Invalid email or password' });
+          return done(null, false, { msg: 'Invalide email ou mot de passe.' });
         }
         return done(null, user);
       });
