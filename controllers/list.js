@@ -123,6 +123,13 @@ exports.addArticle = function(req,res){
   });
 }
 
+exports.geneURL = function(req,res){
+  res.render('geneURL',{
+    title: 'URL Généré.',
+    url : req.param('id')
+  });
+}
+
 exports.valideArticle = function(req,res){
 
 
