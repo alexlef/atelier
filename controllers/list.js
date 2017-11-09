@@ -1,6 +1,5 @@
 var bookshelf = require('../config/bookshelf');
 var Item = require('../models/Item');
-var ItemCree = require('../models/ItemCree');
 var Itemimg = require('../models/itemimg');
 var List = require('../models/list');
 var uuid = require('uuid');
@@ -49,7 +48,6 @@ exports.addList = function(req, res){
   new List({
     email: req.user.attributes.email,
     titre: req.param('titre'),
-    titre: req.param('nom'),
     desc : req.param('desc'),
     destinataire : req.param('destinataire'),
     dateLim : req.param('date'),
@@ -97,10 +95,9 @@ exports.addArticle = function(req,res){
 
 exports.valideArticle = function(req,res){
 
-  var name = req.param('nom') +  uuid.v4();
 
-  var item = new ItemCree({
-      nom : name,
+  var item = new Item({
+      nom : req.param('nom'),
       desc: req.param('desc'),
       tarif: req.param('tarif')});
 
@@ -110,8 +107,7 @@ exports.valideArticle = function(req,res){
 
   item.save();
 
-  ItemCree.where('nom', name).fetch().then(function(item) {
-
+  Item.where({nom : req.param('nom'), desc : req.param('desc')}).fetch().then(function(item) {
     var id = item.attributes.id;
 
     if(req.files[0]){
@@ -135,6 +131,8 @@ exports.valideArticle = function(req,res){
       }).save();
     }
   });
+
+
 
   res.render('home',{
     title: 'mesList'
