@@ -11,14 +11,14 @@ block content
         input#description(type='text' name="desc" required)
       div
         label(for='tarif') Tarif:
-        input#tarif(type='number' name="tarif" required)
+        input#tarif(type="number" onchange="setTwoNumberDecimal" min="0" max="10" step="0.25" value="0.00" name="tarif" required)
       div
         label(for='URL') URL :
         input#URL(type='text' name="url")
       div
         label(for='Image') Image :
         input#image(type='file' name='image' value="")
-        
+
         input#addImage(type='button' value="+")
 
       br

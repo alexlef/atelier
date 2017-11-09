@@ -31,6 +31,7 @@ var HomeController = require('./controllers/home');
 var ListController = require('./controllers/list');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var ItemController = require('./controllers/item');
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -77,9 +78,11 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 app.get('/article', HomeController.allitems);
 app.post('/addarticle', HomeController.addart);
 
-//addArticle
+//Article
 app.get('/addArticle', ListController.addArticle);
 app.post('/valideArticle',upload.any(), ListController.valideArticle);
+app.post('/reserveArticle', ItemController.itemReserve);
+
 
 //list
 app.get('/creerList', ListController.creerList);
