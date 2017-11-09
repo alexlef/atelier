@@ -13,4 +13,13 @@ block content
         - each res in tabList
           div.myList
             a(href='/Liste?id_liste='+res.attributes.id)
+              li= res.attributes.titre
+
+    div.row
+      div.col-8
+          h1 Créer votre liste de cadeaux
+          a(href='/creerList')
+            img.accueil(src='img/rond.png' onmouseover="this.src='img/rond2.png'" onmouseout="this.src='img/rond.png'")
+
               li= res.attributes.desc
+
