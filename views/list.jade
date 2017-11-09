@@ -18,6 +18,9 @@ block content
               li=result.attributes.nom
               li='Prix : '+result.attributes.tarif+'€'
               if res.attributes.url != null || res.attributes.url != ''
-                a.lien(href=res.attributes.url)
+                a.lien(href=result.attributes.url)
                   li='Acheter en magasin'
               li=result.attributes.desc
+              form.ajout(method='POST', action='#')
+                input(type='hidden', name='id', value=)
+                input.adj.inp(type='submit')

@@ -10,7 +10,7 @@ exports.index = function(req, res) {
 };
 
 exports.allitems= function(req, res){
-  Item.fetchAll().then(function(tab){
+  Item.where('id_liste','=',null).query().select().then(function(tab){
     Itemimg.query().select().then(function(t) {
       res.render('article', {
         title: 'article',

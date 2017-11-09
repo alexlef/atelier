@@ -6,17 +6,16 @@ block content
     div.art
       div.a
         - each res in tabimg
-          if res.id_item == result.attributes.id
+          if res.id_item == result.id
             img.i(src='img/'+res.nom)
       ul.liste
-        li=result.attributes.nom
-        li='Prix : '+result.attributes.tarif+'€'
-        a.lien(href=result.attributes.url)
+        li=result.nom
+        li='Prix : '+result.tarif+'€'
+        a.lien(href=result.url)
           li='Acheter en magasin'
-        li=result.attributes.desc
+        li=result.desc
       form.ajout(method='POST', action='/addarticle')
-        input(type='hidden', name='id', value=result.attributes.id)
+        input(type='hidden', name='id', value=result.id)
         input(type='hidden', name='idliste', value=idliste)
         input.adj.inp(type='submit')
-      if i < 7
-        - i += 1
+      - i += 1
