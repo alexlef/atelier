@@ -303,6 +303,10 @@ h1{
   margin-top: 5%;
 }
 
+p{
+  text-align: center;
+}
+
 .Mecado{
   margin-left: 1%;
 }
@@ -348,6 +352,19 @@ h1{
 	top:1px;
 }
 
+h3{
+  padding-top: 3%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+li.url{
+  text-align: center;
+  font-size: 200%;
+  list-style: none;
+  color: blue;
+
+}
 
 @media only screen and (max-width:800px) {
   #mobile{
