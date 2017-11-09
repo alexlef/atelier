@@ -4,13 +4,12 @@ block content
 
   div.grille
     div.row
-      div.col-6
-        - each res in tabList
-          div.myList
-            li= res.attributes.desc
-
-    div.row
       div.col-8
           h1 Créer votre liste de cadeaux
           a(href='/creerList')
             img.accueil(src='img/rond.png' onmouseover="this.src='img/rond2.png'" onmouseout="this.src='img/rond.png'")
+    div.row
+      div.col-6
+        - each res in tabList
+          div.myList
+            li= res.attributes.desc
