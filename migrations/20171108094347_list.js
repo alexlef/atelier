@@ -8,7 +8,8 @@ exports.up = function(knex, Promise) {
       table.string('titre');
       table.string('desc',1000);
       table.date('dateLim');
-      table.string('destinataire');      
+      table.string('destinataire');
+      table.boolean('testDestinataire');    
       table.string('id_list');
       table.timestamps();
     }).then(function () {
