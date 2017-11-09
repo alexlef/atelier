@@ -1,7 +1,10 @@
 var bookshelf = require('../config/bookshelf');
 var Item = require('../models/Item');
+var ItemCree = require('../models/ItemCree');
 var Itemimg = require('../models/itemimg');
 var List = require('../models/list');
+var uuid = require('uuid');
+var App = require('../models/Appartient');
 
 exports.mesList = function(req,res){
 
@@ -23,8 +26,8 @@ exports.mesList = function(req,res){
   }
 }
 
-exports.creerList = function(req,res){
 
+exports.creerList = function(req,res){
   if(req.user){
     res.render('creerList',{
       title: 'Creer Liste'
@@ -48,11 +51,88 @@ exports.addList = function(req, res){
     destinataire : req.param('destinataire'),
     dateLim : req.param('date')}).save();
 
-  res.render('home',{
-    title: ''
-  });
+    if (req.user){
+      List.forge().query(function (qb) {
+        qb.where('list.email', '=', req.user.attributes.email);
+      }).fetchAll().then(function(tab) {
+        res.render('mesList',{
+          title: 'MesList',
+          tabList : tab.models
+        });
+      });
+    }
+    else{
+      return res.redirect('/login');
+      res.render('account/login',{
+        title: 'Log in'
+      });
+    }
 }
 
 exports.affliste = function(req, res) {
+Item.fetchAll().then(function(t){
+  App.fetchAll().then(function(tab){
+    Itemimg.fetchAll().then(function(ta){
+      res.render('list',{
+        title: 'Liste',
+        tabapp : tab.models,
+        tabitem : t.models,
+        tabimg : ta.models,
+        idliste : req.param('id_liste')
+      });
+    });
+  });
+});
+}
 
+exports.addArticle = function(req,res){
+  res.render('addArticle',{
+    title: 'Ajout Article'
+  });
+}
+
+exports.valideArticle = function(req,res){
+
+  var name = req.param('nom') +  uuid.v4();
+
+  var item = new ItemCree({
+      nom : name,
+      desc: req.param('desc'),
+      tarif: req.param('tarif')});
+
+  if(req.param('url')){
+    item.set({url : req.param('url')});
+  }
+
+  item.save();
+
+  ItemCree.where('nom', name).fetch().then(function(item) {
+
+    var id = item.attributes.id;
+
+    if(req.files[0]){
+      new Itemimg({
+        id_item : id,
+        nom : req.files[0].filename
+      }).save();
+    }
+
+    if(req.files[1]){
+      new Itemimg({
+        id_item : id,
+        nom : req.files[1].filename
+      }).save();
+    }
+
+    if(req.files[2]){
+      new Itemimg({
+        id_item : id,
+        nom : req.files[2].filename
+      }).save();
+    }
+  });
+
+  res.render('home',{
+    title: 'mesList'
+  });
 }

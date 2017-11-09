@@ -13,6 +13,19 @@ var passport = require('passport');
 // Load environment variables from .env file
 dotenv.load();
 
+//multer for upload img
+var multer = require('multer');
+var uuid = require('uuid');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img')
+    },
+    filename: function (req, file, cb) {
+        cb(null, uuid.v4() + file.originalname )
+    }
+});
+var upload = multer({ storage: storage });
+
 // Controllers
 var HomeController = require('./controllers/home');
 var ListController = require('./controllers/list');
@@ -62,13 +75,17 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 
 //alex
 app.get('/article', HomeController.allitems);
+app.post('/addarticle', HomeController.addart);
+
+//addArticle
+app.get('/addArticle', ListController.addArticle);
+app.post('/valideArticle',upload.any(), ListController.valideArticle);
 
 //list
 app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
-
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {

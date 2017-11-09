@@ -2,25 +2,24 @@ extends layout
 
 block content
 
-    form.form-style-9(action = '/addArticle', method = 'post')
+    form.form-style-9(action = '/valideArticle', method = 'post', enctype="multipart/form-data")
       div
         label(for='nom') Nom de l'article :
-        input#nom(type='text' required autofocus)
+        input#nom(type='text' name="nom" required autofocus)
       div
         label(for='description') Description :
-        input#description(type='text' required)
+        input#description(type='text' name="desc" required)
       div
         label(for='tarif') Tarif:
-        input#tarif(type='number' required)
+        input#tarif(type='number' name="tarif" required)
       div
         label(for='URL') URL :
-        input#URL(type='text')
+        input#URL(type='text' name="url")
       div
         label(for='Image') Image :
         input#image(type='file' name='image' value="")
-
-      div
-        button#addImage X
+        
+        input#addImage(type='button' value="+")
 
       br
       div

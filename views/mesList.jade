@@ -12,4 +12,5 @@ block content
       div.col-6
         - each res in tabList
           div.myList
-            li= res.attributes.desc
+            a(href='/Liste?id_liste='+res.attributes.id)
+              li= res.attributes.desc
