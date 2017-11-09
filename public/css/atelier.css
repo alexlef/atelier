@@ -673,6 +673,9 @@ ul.breadcrumb {
     list-style: none; }
   .myList :hover {
     color: red; }
+  .myList a {
+    color: white;
+    font-size: 15px; }
 
 /* Accueil */
 h1 {
