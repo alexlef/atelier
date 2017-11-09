@@ -75,11 +75,10 @@ app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
 
-//alex
-app.get('/article', HomeController.allitems);
-app.post('/addarticle', HomeController.addart);
 
 //Article
+app.get('/article', HomeController.allitems);
+app.post('/addarticle', HomeController.addart);
 app.get('/addArticle', ListController.addArticle);
 app.post('/valideArticle',upload.any(), ListController.valideArticle);
 app.post('/reserveArticle', ItemController.itemReserve);

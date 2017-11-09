@@ -23,9 +23,10 @@ block content
                   if (reserv.id_item == result.attributes.id)
                     text.reserve
 
-              form.ajout(method='POST', action='/formReserv?id_liste='+idliste+'&id_produit='+result.attributes.id)
-                  input(type='hidden', name='id', value=)
-                  input.reserve.adj.inp(type='submit')
+              form.ajout(method='POST', action='/formReserv')
+                  input(type='hidden', name='id_liste', value=idliste)
+                  input(type='hidden', name='id_produit', value=result.attributes.id)
+                  input.reserve.adj.inp(type='submit' value='RESERVER')
 
 
   -each result in tabitem
@@ -48,9 +49,10 @@ block content
               if (reserv.id_item == result.attributes.id)
                 text.reserve
 
-          form.ajout(method='POST', action='/formReserv?id_liste='+idliste+'&id_produit='+result.attributes.id)
-              input(type='hidden', name='id', value=)
-              input.reserve.adj.inp(type='submit')
+            form.ajout(method='POST', action='/formReserv')
+                input(type='hidden', name='id_liste', value=idliste)
+                input(type='hidden', name='id_produit', value=result.attributes.id)
+                input.reserve.adj.inp(type='submit' value='RESERVER')
 
 
   -each comm in tabcomm
@@ -61,7 +63,7 @@ block content
   div.grille
     div.row
       div.col-8
-        form.form-style-9(action = '/addComm?id_liste='+idliste, method = 'post')
+        form.form-style-9(action = '/addComm?id_liste='+idliste, method = 'POST')
               div
                 label(for='nom') Votre nom :
                 input#nom(type='text' name="nom" required autofocus)

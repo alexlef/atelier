@@ -127,15 +127,28 @@ exports.afflisteUrl = function(req, res) {
         Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
 
           Itemimg.fetchAll().then(function(ta){
-            res.render('listUrl',{
-              title: 'Liste',
-              tabapp : tab.models,
-              tabitem : t.models,
-              tabimg : ta.models,
-              tabres : reserve,
-              tabcomm : commentaire,
-              idliste : req.param('id_liste')
-            });
+              if(req.cookies.datelimite==liste[0].titre){
+                console.log(liste[0].titre)
+                res.render('prop',{
+                  title: 'Liste',
+                  tabapp : tab.models,
+                  tabitem : t.models,
+                  tabimg : ta.models,
+                  tabres : reserve,
+                  tabcomm : commentaire,
+                  idliste : req.param('id_liste')
+                });
+              }else{
+                res.render('listUrl',{
+                  title: 'Liste',
+                  tabapp : tab.models,
+                  tabitem : t.models,
+                  tabimg : ta.models,
+                  tabres : reserve,
+                  tabcomm : commentaire,
+                  idliste : req.param('id_liste')
+                });
+              }
           });
         });
       });
