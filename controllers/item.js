@@ -9,9 +9,20 @@ var App = require('../models/Appartient');
 exports.itemReserve = function(req,res){
 
   var reserve = new Reserve({
-      //id_liste : recup id liste via url
-      //id_produit: recup id du produits via url
+      id_liste : req.param('id_liste'),
+      id_item: req.param('id_produit'),
       msgGlobal : req.param('msgGlobal'),
       msgPrive : req.param('msgPrive')});
   reserve.save();
+
+  res.redirect('/Liste?id_liste='+req.param('id_liste'));
+
+}
+
+exports.reserveForm= function(req, res){
+      res.render('reserve', {
+        title: 'reserve',
+        idproduit : req.param('id_produit'),
+        idliste : req.param('id_liste')
+      });
 }

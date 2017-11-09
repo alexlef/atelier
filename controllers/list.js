@@ -1,6 +1,7 @@
 var bookshelf = require('../config/bookshelf');
 var Item = require('../models/Item');
 var Itemimg = require('../models/itemimg');
+var Reserve = require('../models/Reserve');
 var List = require('../models/list');
 var uuid = require('uuid');
 var App = require('../models/Appartient');
@@ -72,19 +73,24 @@ exports.addList = function(req, res){
 }
 
 exports.affliste = function(req, res) {
-Item.fetchAll().then(function(t){
-  App.fetchAll().then(function(tab){
-    Itemimg.fetchAll().then(function(ta){
-      res.render('list',{
-        title: 'Liste',
-        tabapp : tab.models,
-        tabitem : t.models,
-        tabimg : ta.models,
-        idliste : req.param('id_liste')
+  Item.fetchAll().then(function(t){
+    App.fetchAll().then(function(tab){
+
+      Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
+
+        Itemimg.fetchAll().then(function(ta){
+          res.render('list',{
+            title: 'Liste',
+            tabapp : tab.models,
+            tabitem : t.models,
+            tabimg : ta.models,
+            tabres : reserve,
+            idliste : req.param('id_liste')
+          });
+        });
       });
     });
   });
-});
 }
 
 exports.addArticle = function(req,res){

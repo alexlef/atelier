@@ -82,6 +82,7 @@ app.post('/addarticle', HomeController.addart);
 app.get('/addArticle', ListController.addArticle);
 app.post('/valideArticle',upload.any(), ListController.valideArticle);
 app.post('/reserveArticle', ItemController.itemReserve);
+app.post('/formReserv', ItemController.reserveForm);
 
 
 //list
@@ -89,6 +90,7 @@ app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
+
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {

@@ -360,3 +360,14 @@ h1{
     width: 70%;
   }
 }
+
+.reserve{
+
+
+  + form > input{
+
+    background: linear-gradient(red,black);
+    pointer-events: none; 
+  }
+
+}

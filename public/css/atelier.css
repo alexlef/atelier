@@ -836,5 +836,8 @@ h1 {
   .accueil:hover {
     height: 70%;
     width: 70%; } }
+.reserve + form > input {
+  background: linear-gradient(red, black);
+  pointer-events: none; }
 
 /*# sourceMappingURL=atelier.css.map */
