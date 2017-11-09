@@ -7,6 +7,8 @@ var List = require('../models/list');
 var User = require('../models/user');
 var uuid = require('uuid');
 var App = require('../models/Appartient');
+var dateFormat = require('dateformat');
+
 
 exports.mesList = function(req,res){
 
@@ -56,6 +58,9 @@ exports.addList = function(req, res){
     dateLim : req.param('date'),
     url : uuid.v4(),
     testDestinataire :r}).save();
+    if(req.param('testDestinataire')=='Oui'){
+     res.cookie('datelimite', req.param('titre'), {expires:new Date(dateFormat(req.param('date'),"d, mmmm yyyy h:MM:ss TT")), httpOnly: true });
+    }
 
     if (req.user){
       List.forge().query(function (qb) {

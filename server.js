@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var passport = require('passport');
+var cookieParser = require('cookie-parser');
 
 // Load environment variables from .env file
 dotenv.load();
@@ -37,7 +38,7 @@ var ItemController = require('./controllers/item');
 require('./config/passport');
 
 var app = express();
-
+app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);

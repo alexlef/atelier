@@ -5,6 +5,7 @@ block content
     button(type='button') Ajouter cadeaux
   a(href='/addArticle?id_liste='+idliste)
     button(type='button') Créer cadeaux
+
   -each result in tabitem
     -each res in tabapp
         if result.attributes.id == res.attributes.id_item
@@ -43,3 +44,4 @@ block content
   form(method='POST', action='/geneURL')
     input(type='hidden', name='id', value=idliste)
     input(type='submit' value='Générer URL')
+
