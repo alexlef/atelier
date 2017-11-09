@@ -86,6 +86,7 @@ app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
+app.post('/geneURL', ListController.geneURL);
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
