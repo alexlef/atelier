@@ -89,7 +89,8 @@ Item.fetchAll().then(function(t){
 
 exports.addArticle = function(req,res){
   res.render('addArticle',{
-    title: 'Ajout Article'
+    title: 'Ajout Article',
+    idliste : req.param('id_liste')
   });
 }
 
@@ -99,7 +100,8 @@ exports.valideArticle = function(req,res){
   var item = new Item({
       nom : req.param('nom'),
       desc: req.param('desc'),
-      tarif: req.param('tarif')});
+      tarif: req.param('tarif'),
+      id_list : req.param('id_liste')});
 
   if(req.param('url')){
     item.set({url : req.param('url')});
