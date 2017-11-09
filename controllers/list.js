@@ -52,6 +52,7 @@ exports.addList = function(req, res){
     desc : req.param('desc'),
     destinataire : req.param('destinataire'),
     dateLim : req.param('date'),
+    url : uuid.v4(),
     testDestinataire :r}).save();
 
     if (req.user){
@@ -76,20 +77,42 @@ exports.affliste = function(req, res) {
   Item.fetchAll().then(function(t){
     App.fetchAll().then(function(tab){
 
-      Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
-
         Itemimg.fetchAll().then(function(ta){
           res.render('list',{
             title: 'Liste',
             tabapp : tab.models,
             tabitem : t.models,
             tabimg : ta.models,
-            tabres : reserve,
             idliste : req.param('id_liste')
+          });
+        });
+    });
+  });
+}
+
+exports.afflisteUrl = function(req, res) {
+
+  List.where('url', req.param("url")).query().select().then(function(reserve){
+
+    Item.fetchAll().then(function(t){
+      App.fetchAll().then(function(tab){
+
+        Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
+
+          Itemimg.fetchAll().then(function(ta){
+            res.render('listUrl',{
+              title: 'Liste',
+              tabapp : tab.models,
+              tabitem : t.models,
+              tabimg : ta.models,
+              tabres : reserve,
+              idliste : req.param('id_liste')
+            });
           });
         });
       });
     });
+
   });
 }
 

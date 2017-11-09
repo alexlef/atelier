@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
       table.date('dateLim');
       table.string('destinataire');
       table.boolean('testDestinataire');
+      table.string('url');
       table.timestamps();
     }).then(function () {
       return knex("list").insert([

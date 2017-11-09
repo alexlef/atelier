@@ -1,10 +1,6 @@
 extends layout
 
 block content
-  a(href='/article?id_liste='+idliste)
-    button(type='button') Ajouter cadeaux
-  a(href='/addArticle?id_liste='+idliste)
-    button(type='button') Créer cadeaux
   -each result in tabitem
     -each res in tabapp
         if result.attributes.id == res.attributes.id_item
@@ -23,6 +19,14 @@ block content
                 li=result.attributes.desc
 
 
+              -each reserv in tabres
+                  if (reserv.id_item == result.attributes.id)
+                    text.reserve
+
+              form.ajout(method='POST', action='/formReserv?id_liste='+idliste+'&id_produit='+result.attributes.id)
+                  input(type='hidden', name='id', value=)
+                  input.reserve.adj.inp(type='submit')
+
 
   -each result in tabitem
     if result.attributes.id_list!=null
@@ -39,3 +43,11 @@ block content
               a.lien(href=result.attributes.url)
                 li='Acheter en magasin'
             li=result.attributes.desc
+
+          -each reserv in tabres
+              if (reserv.id_item == result.attributes.id)
+                text.reserve
+
+          form.ajout(method='POST', action='/formReserv?id_liste='+idliste+'&id_produit='+result.attributes.id)
+              input(type='hidden', name='id', value=)
+              input.reserve.adj.inp(type='submit')
