@@ -42,14 +42,18 @@ exports.creerList = function(req,res){
 }
 
 exports.addList = function(req, res){
-
+  var r = false;
+  if( req.param('testDestinataire')=='Oui'){
+    r=true;
+  }
   new List({
     email: req.user.attributes.email,
     titre: req.param('titre'),
     titre: req.param('nom'),
     desc : req.param('desc'),
     destinataire : req.param('destinataire'),
-    dateLim : req.param('date')}).save();
+    dateLim : req.param('date'),
+    testDestinataire :r}).save();
 
     if (req.user){
       List.forge().query(function (qb) {
