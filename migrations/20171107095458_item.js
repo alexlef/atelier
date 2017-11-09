@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
       table.string('desc', 1000);
       table.decimal('tarif',6,2);
       table.string('url');
+      table.string('id_list');
       table.timestamps();
     }).then(function () {
       return knex("item").insert([
