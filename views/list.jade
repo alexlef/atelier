@@ -21,6 +21,25 @@ block content
                 a.lien(href=result.attributes.url)
                   li='Acheter en magasin'
               li=result.attributes.desc
-              form.ajout(method='POST', action='#')
-                input(type='hidden', name='id', value=)
-                input.adj.inp(type='submit')
+            form.ajout(method='POST', action='#')
+              input(type='hidden', name='id', value=)
+              input.reserve.adj.inp(type='submit')
+
+  -each result in tabitem
+    if result.attributes.id_list!=null
+      if result.attributes.id_list == idliste
+        div.art
+          div.a
+            - each r in tabimg
+              if r.attributes.id_item == result.attributes.id
+                img.i(src='img/'+r.attributes.nom)
+          ul.liste
+            li=result.attributes.nom
+            li='Prix : '+result.attributes.tarif+'€'
+            if result.attributes.url != null || result.attributes.url != ''
+              a.lien(href=result.attributes.url)
+                li='Acheter en magasin'
+            li=result.attributes.desc
+          form.ajout(method='POST', action='#')
+            input(type='hidden', name='id', value=)
+            input.reserve.adj.inp(type='submit')
