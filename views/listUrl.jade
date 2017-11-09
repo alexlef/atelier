@@ -51,3 +51,24 @@ block content
           form.ajout(method='POST', action='/formReserv?id_liste='+idliste+'&id_produit='+result.attributes.id)
               input(type='hidden', name='id', value=)
               input.reserve.adj.inp(type='submit')
+
+
+  -each comm in tabcomm
+    div.commentaire
+        li=comm.nom
+        li=comm.msg
+
+  div.grille
+    div.row
+      div.col-8
+        form.form-style-9(action = '/addComm?id_liste='+idliste, method = 'post')
+              div
+                label(for='nom') Votre nom :
+                input#nom(type='text' name="nom" required autofocus)
+              div
+                label(for='msgPrive') Message :
+                br
+                <textarea class="comm" name="msg" wrap="soft"></textarea>
+                br
+              div
+                input(type='submit', value='Valider')

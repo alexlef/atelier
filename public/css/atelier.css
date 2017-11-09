@@ -807,6 +807,27 @@ li.url {
   list-style: none;
   color: blue; }
 
+.reserve + form > input {
+  background: linear-gradient(red, black);
+  pointer-events: none; }
+
+/*-------------------Commentaire----------------*/
+.comm {
+  resize: vertical;
+  max-height: 500px;
+  min-height: 100px;
+  width: 500px; }
+
+.commentaire {
+  margin-top: 20px;
+  background-color: #EFEFEF;
+  border: solid black 1px;
+  border-radius: 20px; }
+  .commentaire li {
+    height: 50px;
+    list-style: none;
+    padding: 50px; }
+
 @media only screen and (max-width: 800px) {
   #mobile {
     display: block;
@@ -850,8 +871,5 @@ li.url {
   .accueil:hover {
     height: 70%;
     width: 70%; } }
-.reserve + form > input {
-  background: linear-gradient(red, black);
-  pointer-events: none; }
 
 /*# sourceMappingURL=atelier.css.map */

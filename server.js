@@ -92,6 +92,7 @@ app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
 app.get('/:url', ListController.afflisteUrl);
 app.post('/geneURL', ListController.geneURL);
+app.post('/addComm', ListController.addComm);
 
 // Production error handler
 if (app.get('env') === 'production') {

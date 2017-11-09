@@ -2,6 +2,7 @@ var bookshelf = require('../config/bookshelf');
 var Item = require('../models/Item');
 var Itemimg = require('../models/itemimg');
 var Reserve = require('../models/Reserve');
+var Commentaire = require('../models/Commentaire');
 var List = require('../models/list');
 var User = require('../models/user');
 var uuid = require('uuid');
@@ -111,7 +112,9 @@ exports.affliste = function(req, res) {
 
 exports.afflisteUrl = function(req, res) {
 
-  List.where('url', req.param("url")).query().select().then(function(reserve){
+  List.where('url', req.param("url")).query().select().then(function(liste){
+
+    Commentaire.where('id_liste', req.param("id_liste")).query().select().then(function(commentaire){
 
     Item.fetchAll().then(function(t){
       App.fetchAll().then(function(tab){
@@ -125,11 +128,13 @@ exports.afflisteUrl = function(req, res) {
               tabitem : t.models,
               tabimg : ta.models,
               tabres : reserve,
+              tabcomm : commentaire,
               idliste : req.param('id_liste')
             });
           });
         });
       });
+    });
     });
 
   });
@@ -145,13 +150,22 @@ exports.addArticle = function(req,res){
 exports.geneURL = function(req,res){
 
   List.where('id', req.param('id')).fetch().then(function(list) {
-    console.log(list)
     res.render('geneURL',{
       title: 'URL Généré.',
       url : req.param('id'),
       sha1 : list.attributes.url
     });
   });
+}
+
+exports.addComm = function(req,res){
+
+  new Commentaire({
+      nom: req.param('nom'),
+      msg : req.param('msg'),
+      destinataire : req.param('destinataire'),
+      id_liste : req.param('id_liste')}).save();
+
 }
 
 exports.valideArticle = function(req,res){
