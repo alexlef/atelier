@@ -2,9 +2,9 @@ extends layout
 
 block content
   a(href='/article?id_liste='+idliste)
-    button(type='button') Ajouter cadeaux
+    button.btn(type='button') Ajouter cadeaux
   a(href='#')
-    button(type='button') Créer cadeaux
+    button.btn(type='button') Créer cadeaux
   -each result in tabitem
     -each res in tabapp
       if result.attributes.id == res.attributes.id_item
@@ -23,7 +23,7 @@ block content
               li=result.attributes.desc
             form.ajout(method='POST', action='#')
               input(type='hidden', name='id', value=)
-              input.reserve.adj.inp(type='submit')
+              input.reserve.adj.inp(type='submit' value='RESERVER')
 
   -each result in tabitem
     if result.attributes.id_list!=null
@@ -42,4 +42,4 @@ block content
             li=result.attributes.desc
           form.ajout(method='POST', action='#')
             input(type='hidden', name='id', value=)
-            input.reserve.adj.inp(type='submit')
+            input.adj.inp(type='submit' value='RESERVER')

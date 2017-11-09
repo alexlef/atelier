@@ -4,6 +4,8 @@ var Itemimg = require('../models/itemimg');
 var List = require('../models/list');
 var uuid = require('uuid');
 var App = require('../models/Appartient');
+var dateFormat = require('dateformat');
+
 
 exports.mesList = function(req,res){
 
@@ -52,6 +54,9 @@ exports.addList = function(req, res){
     destinataire : req.param('destinataire'),
     dateLim : req.param('date'),
     testDestinataire :r}).save();
+    if(req.param('testDestinataire')=='Oui'){
+     res.cookie('datelimite', req.param('titre'), {expires:new Date(dateFormat(req.param('date'),"d, mmmm yyyy h:MM:ss TT")), httpOnly: true });
+    }
 
     if (req.user){
       List.forge().query(function (qb) {

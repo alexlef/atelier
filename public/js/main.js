@@ -23,11 +23,3 @@ $(function() {
 						}
 	});
 });
-
-$(document).ready(function() {
-  $('.adj').val('A\nJ\nO\nU\nT\nE\nR');
-});
-
-$(document).ready(function() {
-  $('.reserve').val('R\nE\nS\nE\nR\nV\nE\nR');
-});
