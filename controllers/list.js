@@ -3,6 +3,7 @@ var Item = require('../models/Item');
 var Itemimg = require('../models/itemimg');
 var Reserve = require('../models/Reserve');
 var List = require('../models/list');
+var User = require('../models/user');
 var uuid = require('uuid');
 var App = require('../models/Appartient');
 
@@ -74,20 +75,38 @@ exports.addList = function(req, res){
 }
 
 exports.affliste = function(req, res) {
-  Item.fetchAll().then(function(t){
-    App.fetchAll().then(function(tab){
 
-        Itemimg.fetchAll().then(function(ta){
-          res.render('list',{
-            title: 'Liste',
-            tabapp : tab.models,
-            tabitem : t.models,
-            tabimg : ta.models,
-            idliste : req.param('id_liste')
+  if(req.user){
+
+    User.where('id',req.user.attributes.id).fetch().then(function(user){
+
+      List.where('id', req.param("id_liste")).fetch().then(function(list){
+
+        if(user.attributes.email == list.attributes.email){
+
+          Item.fetchAll().then(function(t){
+            App.fetchAll().then(function(tab){
+
+              Itemimg.fetchAll().then(function(ta){
+
+                res.render('list',{
+                  title: 'Liste',
+                  tabapp : tab.models,
+                  tabitem : t.models,
+                  tabimg : ta.models,
+                  idliste : req.param('id_liste')
+                });
+              });
+            });
           });
-        });
+        }else{
+              res.redirect('/login');
+          }
+      });
     });
-  });
+  }else{
+      res.redirect('/login');
+  }
 }
 
 exports.afflisteUrl = function(req, res) {
@@ -124,9 +143,14 @@ exports.addArticle = function(req,res){
 }
 
 exports.geneURL = function(req,res){
-  res.render('geneURL',{
-    title: 'URL Généré.',
-    url : req.param('id')
+
+  List.where('id', req.param('id')).fetch().then(function(list) {
+    console.log(list)
+    res.render('geneURL',{
+      title: 'URL Généré.',
+      url : req.param('id'),
+      sha1 : list.attributes.url
+    });
   });
 }
 
@@ -170,9 +194,5 @@ exports.valideArticle = function(req,res){
     }
   });
 
-
-
-  res.render('home',{
-    title: 'mesList'
-  });
+    res.redirect('/Liste?id_liste='+req.param('id_liste'));
 }
