@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-    form.form-style-9(action = '/valideArticle', method = 'post', enctype="multipart/form-data")
+    form.form-style-9(action = '/valideArticle?id_liste='+idliste, method = 'post', enctype="multipart/form-data")
       div
         label(for='nom') Nom de l'article :
         input#nom(type='text' name="nom" required autofocus)

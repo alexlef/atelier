@@ -3,7 +3,7 @@ extends layout
 block content
   a(href='/article?id_liste='+idliste)
     button(type='button') Ajouter cadeaux
-  a(href='#')
+  a(href='/addArticle?id_liste='+idliste)
     button(type='button') Créer cadeaux
   -each result in tabitem
     -each res in tabapp
