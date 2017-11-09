@@ -32,6 +32,7 @@ var HomeController = require('./controllers/home');
 var ListController = require('./controllers/list');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var ItemController = require('./controllers/item');
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -78,16 +79,22 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 app.get('/article', HomeController.allitems);
 app.post('/addarticle', HomeController.addart);
 
-//addArticle
+//Article
 app.get('/addArticle', ListController.addArticle);
 app.post('/valideArticle',upload.any(), ListController.valideArticle);
+app.post('/reserveArticle', ItemController.itemReserve);
+app.post('/formReserv', ItemController.reserveForm);
+
 
 //list
 app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
+app.get('/:url', ListController.afflisteUrl);
 app.post('/geneURL', ListController.geneURL);
+app.post('/addComm', ListController.addComm);
+
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {

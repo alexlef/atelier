@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container-fluidZZ
+    if messages.error
+      .alert.alert-danger(role='alert')
+        for error in messages.error
+          div= error.msg
+    if messages.success
+      .alert.alert-success(role='alert')
+        for success in messages.success
+          div= success.msg
+    if messages.info
+      .alert.alert-info(role='alert')
+        for info in messages.info
+          div= info.msg
+
+
+    form.form-style-9(action = '/reserveArticle?id_liste='+idliste+'&id_produit='+idproduit, method = 'POST')
+            div
+              label(for='msgPrive') Message Privé :
+              <textarea id="msgPrive" name="msgPrive" cols="35" wrap="soft"></textarea>
+            br
+            div
+              label(for='msgGlobal') Message Global :
+              <textarea id="msgGlobal" name="msgGlobal" cols="35" wrap="soft"></textarea>
+            br
+            div
+              input(type='submit', value='Valider')

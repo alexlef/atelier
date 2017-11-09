@@ -366,6 +366,49 @@ li.url{
 
 }
 
+
+.reserve{
+
+
+  + form > input{
+
+    background: linear-gradient(red,black);
+    pointer-events: none;
+  }
+
+}
+
+/*-------------------Commentaire----------------*/
+.comm{
+  resize:vertical;
+  max-height:500px;
+  min-height:100px;
+  width : 500px;
+}
+
+.commentaire{
+
+  margin-left : 20px;
+  background-color: #EFEFEF;
+  border: solid black 1px;
+  border-radius: 20px;
+
+  li{
+      height : 50px;
+      list-style: none;
+      padding : 50px;
+  }
+
+}
+
+.msgCom{
+  padding-top : 10px;
+}
+
+.nomCom{
+  padding-top : 10px;
+}
+
 @media only screen and (max-width:800px) {
   #mobile{
     display : block;
