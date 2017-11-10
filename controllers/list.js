@@ -130,8 +130,22 @@ exports.afflisteUrl = function(req, res) {
           Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
 
             Itemimg.fetchAll().then(function(ta){
-
-              if(typeof liste[0].titre != 'undefined'){
+              if(req.user){
+                if(liste[0].email == req.user.attributes.email){
+                  if(req.cookies.datelimite==undefined){
+                    res.render('messp',{
+                    title: 'Liste',
+                    tabapp : tab.models,
+                    tabitem : t.models,
+                    tabimg : ta.models,
+                    tabres : reserve,
+                    tabcomm : commentaire,
+                    idliste : req.param('id_liste')
+                  });
+                  }
+                }
+              }
+              else if(typeof liste[0].titre != 'undefined'){
                 if(req.cookies.datelimite==liste[0].titre){
                   res.render('prop',{
                     title: 'Liste',
