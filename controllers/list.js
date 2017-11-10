@@ -59,7 +59,7 @@ exports.addList = function(req, res){
     url : uuid.v4(),
     testDestinataire :r}).save();
     if(req.param('testDestinataire')=='Oui'){
-     res.cookie('datelimite', req.param('titre'), {expires:new Date(dateFormat(req.param('date'),"d, mmmm yyyy h:MM:ss TT")), httpOnly: true });
+        res.cookie(req.param('titre'), req.param('titre'), {expires:new Date(dateFormat(req.param('date'),"d, mmmm yyyy h:MM:ss TT")), httpOnly: true });
     }
 
     if (req.user){
