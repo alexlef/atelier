@@ -59,7 +59,7 @@ block content
   div.grille
     div.row
       div.col-8
-        form.form-style-9(action = '/addComm?id_liste='+idliste, method = 'POST')
+        form.form-style-9(action='/addComm?id_liste='+idliste, method = 'POST')
               div
                 label(for='nom') Votre nom :
                 input#nom(type='text' name="nom" required autofocus)
@@ -69,4 +69,4 @@ block content
                 <textarea class="comm" name="msg" wrap="soft"></textarea>
                 br
               div
-                input(type='submit', value='Valider')
+                input.validComm.btn(type='submit', value='Valider')
