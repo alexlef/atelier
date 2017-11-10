@@ -246,7 +246,7 @@ exports.forgotPost = function(req, res, next) {
         .fetch()
         .then(function(user) {
           if (!user) {
-        req.flash('error', { msg: 'L email ' + req.body.email + ' n est lié avec aucun compte.' });
+        req.flash('error', { msg: 'L\'email ' + req.body.email + ' est lié avec aucun compte.' });
         return res.redirect('/forgot');
           }
           user.set('passwordResetToken', token);
