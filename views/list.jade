@@ -2,9 +2,9 @@ extends layout
 
 block content
   a(href='/article?id_liste='+idliste)
-    button(type='button') Ajouter cadeaux
+    button.btn(type='button') Ajouter cadeaux
   a(href='/addArticle?id_liste='+idliste)
-    button(type='button') Créer cadeaux
+    button.btn(type='button') Créer cadeaux
 
   -each result in tabitem
     -each res in tabapp
@@ -22,7 +22,6 @@ block content
                   a.lien(href=result.attributes.url)
                     li='Acheter en magasin'
                 li=result.attributes.desc
-
 
 
   -each result in tabitem
@@ -43,5 +42,4 @@ block content
 
   form(method='POST', action='/geneURL')
     input(type='hidden', name='id', value=idliste)
-    input(type='submit' value='Générer URL')
-
+    input.btn(type='submit' value='Générer URL')
