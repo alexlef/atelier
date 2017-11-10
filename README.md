@@ -39,3 +39,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 1. cloner le projet
 2. Se déplacer dans le dossier du projet créé (** cd atelier **)
 3. lancer le fichier demarrage.sh ( **./demarrage.sh **)
+
+## Tableau de bord
+
+URL trello : https://trello.com/b/rzxoDfYP/atelier 
