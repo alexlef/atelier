@@ -121,41 +121,41 @@ exports.afflisteUrl = function(req, res) {
 
     Commentaire.where('id_liste', req.param("id_liste")).query().select().then(function(commentaire){
 
-    Item.fetchAll().then(function(t){
-      App.fetchAll().then(function(tab){
+      Item.fetchAll().then(function(t){
+        App.fetchAll().then(function(tab){
 
-        Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
+          Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
 
-          Itemimg.fetchAll().then(function(ta){
-            console.log(liste[0].titre)
-              if(req.cookies.datelimite==liste[0].titre){
+            Itemimg.fetchAll().then(function(ta){
 
-                res.render('prop',{
-                  title: 'Liste',
-                  tabapp : tab.models,
-                  tabitem : t.models,
-                  tabimg : ta.models,
-                  tabres : reserve,
-                  tabcomm : commentaire,
-                  idliste : req.param('id_liste')
-                });
-              }else{
-                res.render('listUrl',{
-                  title: 'Liste',
-                  tabapp : tab.models,
-                  tabitem : t.models,
-                  tabimg : ta.models,
-                  tabres : reserve,
-                  tabcomm : commentaire,
-                  idliste : req.param('id_liste')
-                });
+              if(typeof liste[0] === 'undefined'){
+                if(req.cookies.datelimite==liste[0]){
+                  res.render('prop',{
+                    title: 'Liste',
+                    tabapp : tab.models,
+                    tabitem : t.models,
+                    tabimg : ta.models,
+                    tabres : reserve,
+                    tabcomm : commentaire,
+                    idliste : req.param('id_liste')
+                  });
+                }else{
+                  res.render('listUrl',{
+                    title: 'Liste',
+                    tabapp : tab.models,
+                    tabitem : t.models,
+                    tabimg : ta.models,
+                    tabres : reserve,
+                    tabcomm : commentaire,
+                    idliste : req.param('id_liste')
+                  });
+                }
               }
+            });
           });
         });
       });
     });
-    });
-
   });
 }
 
@@ -182,8 +182,10 @@ exports.addComm = function(req,res){
   new Commentaire({
       nom: req.param('nom'),
       msg : req.param('msg'),
-      destinataire : req.param('destinataire'),
-      id_liste : req.param('id_liste')}).save();
+      id_liste : req.param('idliste')}).save();
+
+    backURL=req.header('Referer') || '/';
+    res.redirect(backURL);
 
 }
 
