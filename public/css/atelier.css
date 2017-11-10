@@ -935,6 +935,10 @@ input.btn {
     height: 100px; }
 
   .a {
-    width: 100%; } }
+    width: 100%; }
+
+  input.btn {
+    margin-left: 0%;
+    margin-right: 0%; } }
 
 /*# sourceMappingURL=atelier.css.map */
