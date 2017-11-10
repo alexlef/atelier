@@ -57,6 +57,7 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/url', express.static('public'))
 
 app.get('/', HomeController.index);
 app.get('/contact', contactController.contactGet);
@@ -90,7 +91,7 @@ app.get('/creerList', ListController.creerList);
 app.post('/valideList', ListController.addList);
 app.get('/mesList', ListController.mesList);
 app.get('/liste', ListController.affliste);
-app.get('/:url', ListController.afflisteUrl);
+app.get('/url/:url', ListController.afflisteUrl);
 app.post('/geneURL', ListController.geneURL);
 app.post('/addComm', ListController.addComm);
 

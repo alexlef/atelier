@@ -11,11 +11,14 @@ exports.itemReserve = function(req,res){
   var reserve = new Reserve({
       id_liste : req.param('id_liste'),
       id_item: req.param('id_produit'),
+      nom: req.param('nom'),
       msgGlobal : req.param('msgGlobal'),
       msgPrive : req.param('msgPrive')});
   reserve.save();
 
-  res.redirect('/Liste?id_liste='+req.param('id_liste'));
+  List.where('id',req.param('id_liste')).fetch().then(function(liste) {
+    res.redirect('/url/'+ liste.attributes.url + '?id_liste=' + req.param('id_liste'));
+  });
 
 }
 

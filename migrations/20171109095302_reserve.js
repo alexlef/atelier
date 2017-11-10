@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
       table.increments();
       table.integer('id_liste');
       table.integer('id_item');
+      table.string('nom');
       table.string('msgPrive');
       table.string('msgGlobal');
     })
