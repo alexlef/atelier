@@ -84,6 +84,8 @@ app.get('/addArticle', ListController.addArticle);
 app.post('/valideArticle',upload.any(), ListController.valideArticle);
 app.post('/reserveArticle', ItemController.itemReserve);
 app.post('/formReserv', ItemController.reserveForm);
+app.post('/delItem', ItemController.delItem);
+app.post('/delItemCree', ItemController.delItemCree);
 
 
 //list

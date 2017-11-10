@@ -22,6 +22,26 @@ exports.itemReserve = function(req,res){
 
 }
 
+exports.delItem = function(req,res){
+  
+  App.where({id_liste : req.param('id_liste'), id_item : req.param('id_produit')}).fetch().then(function(liste) {
+    liste.destroy();
+  });
+
+  res.redirect(req.get('referer'));
+}
+
+
+exports.delItemCree = function(req,res){
+
+  Item.where({id_list : req.param('id_liste'), id : req.param('id_produit')}).fetch().then(function(liste) {
+    liste.destroy();
+  });
+
+  res.redirect(req.get('referer'));
+}
+
+
 exports.reserveForm= function(req, res){
       res.render('reserve', {
         title: 'reserve',

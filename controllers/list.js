@@ -93,17 +93,20 @@ exports.affliste = function(req, res) {
           Item.fetchAll().then(function(t){
             App.fetchAll().then(function(tab){
 
-              Itemimg.fetchAll().then(function(ta){
+              Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
+                Itemimg.fetchAll().then(function(ta){
 
-                res.render('list',{
-                  title: 'Liste',
-                  tabapp : tab.models,
-                  tabitem : t.models,
-                  tabimg : ta.models,
-                  idliste : req.param('id_liste')
-                });
+                  res.render('list',{
+                    title: 'Liste',
+                    tabapp : tab.models,
+                    tabitem : t.models,
+                    tabimg : ta.models,
+                    tabres : reserve,
+                    idliste : req.param('id_liste')
+                  });
               });
             });
+          });
           });
         }else{
               res.redirect('/login');

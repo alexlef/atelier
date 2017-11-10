@@ -873,6 +873,14 @@ li.url {
 .nomCom {
   padding-top: 10px; }
 
+.validComm {
+  margin-left: 0px;
+  margin-right: 0px; }
+
+input.btn {
+  margin-left: 40%;
+  margin-right: 40%; }
+
 @media only screen and (max-width: 800px) {
   #mobile {
     display: block;
@@ -931,6 +939,10 @@ li.url {
     height: 100px; }
 
   .a {
-    width: 100%; } }
+    width: 100%; }
+
+  input.btn {
+    margin-left: 0%;
+    margin-right: 0%; } }
 
 /*# sourceMappingURL=atelier.css.map */
