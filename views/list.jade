@@ -2,7 +2,7 @@ extends layout
 
 block content
   a(href='/article?id_liste='+idliste)
-    button(type='button') Ajouter cadeaux
+    button.btn(type='button') Ajouter cadeaux
   a(href='/addArticle?id_liste='+idliste)
     button(type='button') Créer cadeaux
   -var boolean = false
@@ -23,7 +23,6 @@ block content
                   a.lien(href=result.attributes.url)
                     li='Acheter en magasin'
                 li=result.attributes.desc
-
 
 
   -each result in tabitem
