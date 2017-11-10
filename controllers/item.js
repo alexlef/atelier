@@ -23,7 +23,7 @@ exports.itemReserve = function(req,res){
 }
 
 exports.delItem = function(req,res){
-
+  
   App.where({id_liste : req.param('id_liste'), id_item : req.param('id_produit')}).fetch().then(function(liste) {
     liste.destroy();
   });
