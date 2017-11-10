@@ -143,7 +143,7 @@ exports.afflisteUrl = function(req, res) {
                     idliste : req.param('id_liste')
                   });
                   }else{
-                      res.render('listUrl',{
+                      res.render('prop',{
                         title: 'Liste',
                         tabapp : tab.models,
                         tabitem : t.models,
