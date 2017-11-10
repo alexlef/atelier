@@ -128,8 +128,8 @@ exports.afflisteUrl = function(req, res) {
 
             Itemimg.fetchAll().then(function(ta){
 
-              if(typeof liste[0] === 'undefined'){
-                if(req.cookies.datelimite==liste[0]){
+              if(typeof liste[0].titre != 'undefined'){
+                if(req.cookies.datelimite==liste[0].titre){
                   res.render('prop',{
                     title: 'Liste',
                     tabapp : tab.models,
@@ -150,6 +150,16 @@ exports.afflisteUrl = function(req, res) {
                     idliste : req.param('id_liste')
                   });
                 }
+              }else{
+                res.render('listUrl',{
+                  title: 'Liste',
+                  tabapp : tab.models,
+                  tabitem : t.models,
+                  tabimg : ta.models,
+                  tabres : reserve,
+                  tabcomm : commentaire,
+                  idliste : req.param('id_liste')
+                });
               }
             });
           });
