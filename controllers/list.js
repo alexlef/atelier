@@ -150,17 +150,6 @@ exports.afflisteUrl = function(req, res) {
                     idliste : req.param('id_liste')
                   });
                 }
-
-              }else{
-                res.render('listUrl',{
-                  title: 'Liste',
-                  tabapp : tab.models,
-                  tabitem : t.models,
-                  tabimg : ta.models,
-                  tabres : reserve,
-                  tabcomm : commentaire,
-                  idliste : req.param('id_liste')
-                });
               }
             });
           });
