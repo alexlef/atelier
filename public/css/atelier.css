@@ -873,6 +873,10 @@ li.url {
 .nomCom {
   padding-top: 10px; }
 
+input.btn {
+  margin-left: 40%;
+  margin-right: 40%; }
+
 @media only screen and (max-width: 800px) {
   #mobile {
     display: block;

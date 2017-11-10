@@ -45,6 +45,6 @@ block content
   if boolean == true
     form(method='POST', action='/geneURL')
       input(type='hidden', name='id', value=idliste)
-      input(type='submit' value='Générer URL')
+      input.btn(type='submit' value='Générer URL')
   else
     p Aucun item présent dans cette liste.
