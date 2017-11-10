@@ -853,25 +853,34 @@ li.url {
 
 /*-------------------Commentaire----------------*/
 .comm {
-  resize: horizontal;
-  max-height: 500px;
+  width: 90%;
   min-height: 100px; }
 
 .commentaire {
-  margin-left: 20px;
-  background-color: #EFEFEF;
-  border: solid black 1px;
-  border-radius: 20px; }
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+  border-radius: 20px;
+  margin-bottom: 20px; }
   .commentaire li {
-    height: 50px;
+    height: 10px;
     list-style: none;
-    padding: 50px; }
+    padding: 20px; }
 
 .msgCom {
-  padding-top: 10px; }
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 50px;
+  background-color: white;
+  border: solid black 1px; }
 
 .nomCom {
-  padding-top: 10px; }
+  padding-top: 10px;
+  font-weight: bold; }
 
 .validComm {
   margin-left: 0px;
@@ -880,6 +889,23 @@ li.url {
 input.btn {
   margin-left: 40%;
   margin-right: 40%; }
+
+/*----------------pres liste--------*/
+.listePres {
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+  border-radius: 20px;
+  margin-bottom: 20px; }
+  .listePres li {
+    list-style: none; }
+
+.lTitre {
+  font-weight: bold;
+  font-size: 20px; }
 
 @media only screen and (max-width: 800px) {
   #mobile {
@@ -943,6 +969,9 @@ input.btn {
 
   input.btn {
     margin-left: 0%;
-    margin-right: 0%; } }
+    margin-right: 0%; }
+
+  .commentaire {
+    width: 80%; } }
 
 /*# sourceMappingURL=atelier.css.map */
