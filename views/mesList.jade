@@ -12,5 +12,5 @@ block content
       div.col-6
         - each res in tabList
           div.myList
-            a(href='/Liste?id_liste='+res.attributes.id)
+            a.lien(href='/Liste?id_liste='+res.attributes.id)
               li= res.attributes.titre
