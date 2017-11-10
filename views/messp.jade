@@ -20,9 +20,9 @@ block content
                 li=result.attributes.desc
                 -each reserv in tabres
                   if(reserv.id_item == result.attributes.id)
-                    li= 'reservé par : ' + reserv.nom
+                    li='reservé par : ' + reserv.nom
                     if(reserv.msgPrive!=null)
-                      li='message :'+reserve.nom
+                      li='message :'+reserv.nom
                 -each reserv in tabres
                     if (reserv.id_item == result.attributes.id)
                       text.reserve
