@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
   a(href='/article?id_liste='+idliste)
     button.btn(type='button') Ajouter cadeaux
   a(href='/addArticle?id_liste='+idliste)
@@ -62,6 +63,11 @@ block content
                   - bool = true
           if bool == true
               input.ajout.reserve.inp(type='submit' value=' EST RESERVE')
+          else
+              form.ajout(method='POST', action='/delItemCree')
+                    input(type='hidden', name='id_liste', value=idliste)
+                    input(type='hidden', name='id_produit', value=result.attributes.id)
+                    input.reserve.adj.inp(type='submit' value='SUPPRIMER')
 
   if boolean == true
     form(method='POST', action='/geneURL')

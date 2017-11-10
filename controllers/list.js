@@ -130,64 +130,37 @@ exports.afflisteUrl = function(req, res) {
           Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
 
             Itemimg.fetchAll().then(function(ta){
+
+              rendu = function(template, titre){
+                res.render(template,{
+                title: titre,
+                tabliste : liste,
+                tabapp : tab.models,
+                tabitem : t.models,
+                tabimg : ta.models,
+                tabres : reserve,
+                tabcomm : commentaire,
+                idliste : req.param('id_liste')
+              });
+            }
+
               if(req.user){
                 if(liste[0].email == req.user.attributes.email){
-                  var cookiename = liste[0].titre
-                  if(req.cookies.cookiename==undefined){
-                    res.render('messp',{
-                    title: 'Liste',
-                    tabapp : tab.models,
-                    tabitem : t.models,
-                    tabimg : ta.models,
-                    tabres : reserve,
-                    tabcomm : commentaire,
-                    idliste : req.param('id_liste')
-                  });
+                  if(req.cookies.datelimite==undefined){
+                    rendu('messp','Liste');
                   }else{
-                      res.render('prop',{
-                        title: 'Liste',
-                        tabapp : tab.models,
-                        tabitem : t.models,
-                        tabimg : ta.models,
-                        tabres : reserve,
-                        tabcomm : commentaire,
-                        idliste : req.param('id_liste')
-                      });
+                    rendu('prop','Liste');
                     }
                 }
               }
               else if(typeof liste[0].titre != 'undefined'){
                 if(req.cookies.datelimite==liste[0].titre){
-                  res.render('prop',{
-                    title: 'Liste',
-                    tabapp : tab.models,
-                    tabitem : t.models,
-                    tabimg : ta.models,
-                    tabres : reserve,
-                    tabcomm : commentaire,
-                    idliste : req.param('id_liste')
-                  });
+                  rendu('prop','Liste');
                 }else{
-                  res.render('listUrl',{
-                    title: 'Liste',
-                    tabapp : tab.models,
-                    tabitem : t.models,
-                    tabimg : ta.models,
-                    tabres : reserve,
-                    tabcomm : commentaire,
-                    idliste : req.param('id_liste')
-                  });
+                  rendu('listUrl','Liste');
                 }
               }else{
-                res.render('listUrl',{
-                  title: 'Liste',
-                  tabapp : tab.models,
-                  tabitem : t.models,
-                  tabimg : ta.models,
-                  tabres : reserve,
-                  tabcomm : commentaire,
-                  idliste : req.param('id_liste')
-                });
+                rendu('listUrl','Liste');
               }
             });
           });

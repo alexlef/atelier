@@ -1,29 +1,39 @@
 extends layout
 
 block content
+
+  div.grille
+    -each liste in tabliste
+      div.row
+        div.col-4.listePres
+          li.lTitre=liste.titre
+          li.lDesc=liste.desc
+
+
   -each result in tabitem
-    -each res in tabapp
-        if result.attributes.id == res.attributes.id_item
-          if res.attributes.id_liste == idliste
-            div.art
-              div.a
-                - each r in tabimg
-                  if r.attributes.id_item == result.attributes.id
-                    img.i(src='img/'+r.attributes.nom)
-              - var bool = false
-              ul.liste
-                li=result.attributes.nom
-                li='Prix : '+result.attributes.tarif+'€'
-                if res.attributes.url != null || res.attributes.url != ''
-                  a.lien(href=result.attributes.url)
-                    li='Acheter en magasin'
-                li=result.attributes.desc
-                -each reserv in tabres
-                    if (reserv.id_item == result.attributes.id)
-                      text.reserve
-                      - bool = true
-              if bool == true
-                  input.ajout.reserve.inp(type='submit' value=' EST RESERVE')
+
+        -each res in tabapp
+            if result.attributes.id == res.attributes.id_item
+              if res.attributes.id_liste == idliste
+                div.art
+                  div.a
+                    - each r in tabimg
+                      if r.attributes.id_item == result.attributes.id
+                        img.i(src='img/'+r.attributes.nom)
+                  - var bool = false
+                  ul.liste
+                    li=result.attributes.nom
+                    li='Prix : '+result.attributes.tarif+'€'
+                    if res.attributes.url != null || res.attributes.url != ''
+                      a.lien(href=result.attributes.url)
+                        li='Acheter en magasin'
+                    li=result.attributes.desc
+                    -each reserv in tabres
+                        if (reserv.id_item == result.attributes.id)
+                          text.reserve
+                          - bool = true
+                  if bool == true
+                      input.ajout.reserve.inp(type='submit' value=' EST RESERVE')
 
 
 
@@ -56,17 +66,16 @@ block content
         li.nomCom=comm.nom
         li.msgCom=comm.msg
 
-  div.grille
-    div.row
-      div.col-8
-        form.form-style-9(action='/addComm?id_liste='+idliste, method = 'POST')
-              div
-                label(for='nom') Votre nom :
-                input#nom(type='text' name="nom" required autofocus)
-              div
-                label(for='msgPrive') Message :
-                br
-                <textarea class="comm" name="msg" wrap="soft"></textarea>
-                br
-              div
-                input.validComm.btn(type='submit', value='Valider')
+  form.form-style-9(action = '/addComm', method = 'POST')
+                  div
+                    input(type='hidden', name='idliste', value=idliste)
+                  div
+                    label(for='nom') Votre nom :
+                    input#nom(type='text' name="nom" required )
+                  div
+                    label(for='msgPrive') Message :
+                    br
+                    <textarea class="comm" name="msg" wrap="soft"></textarea>
+                    br
+                  div
+                    input.btn(type='submit', value='Valider')

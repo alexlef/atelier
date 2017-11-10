@@ -1,9 +1,17 @@
 extends layout
 
 block content
+
+  div.grille
+    -each liste in tabliste
+      div.row
+        div.col-4.listePres
+          li.lTitre=liste.titre
+          li.lDesc=liste.desc
   -each result in tabitem
 
       -each res in tabapp
+
           if result.attributes.id == res.attributes.id_item
             if res.attributes.id_liste == idliste
               div.art
@@ -66,7 +74,7 @@ block content
 
   -each comm in tabcomm
     div.commentaire
-        li.nomCom=comm.nom
+        li.nomCom=comm.nom + " à écrit :"
         li.msgCom=comm.msg
 
   form.form-style-9(action = '/addComm', method = 'POST')
@@ -81,4 +89,4 @@ block content
                 <textarea class="comm" name="msg" wrap="soft"></textarea>
                 br
               div
-                input.validComm.btn(type='submit', value='Valider')
+                input.btn(type='submit', value='Valider')
