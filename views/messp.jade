@@ -19,6 +19,11 @@ block content
                     li='Acheter en magasin'
                 li=result.attributes.desc
                 -each reserv in tabres
+                  if(reserv.id_item == result.attributes.id)
+                    li= 'reservé par : ' + reserv.nom
+                    if(reserv.msgPrive!=null)
+                      li='message :'+reserve.nom
+                -each reserv in tabres
                     if (reserv.id_item == result.attributes.id)
                       text.reserve
                       - bool = true
