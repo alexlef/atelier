@@ -53,10 +53,6 @@ block content
             input(type='hidden', name='id_produit', value=result.attributes.id)
             input.reserve.adj.inp(type='submit' value='SUPPRIMER')
 
-  form(method='POST', action='/geneURL')
-    input(type='hidden', name='id', value=idliste)
-    input.btn(type='submit' value='Générer URL')
-
   if boolean == true
     form(method='POST', action='/geneURL')
       input(type='hidden', name='id', value=idliste)
