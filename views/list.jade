@@ -5,11 +5,12 @@ block content
     button.btn(type='button') Ajouter cadeaux
   a(href='/addArticle?id_liste='+idliste)
     button.btn(type='button') Créer cadeaux
-
+  -var boolean = false
   -each result in tabitem
     -each res in tabapp
         if result.attributes.id == res.attributes.id_item
           if res.attributes.id_liste == idliste
+            -boolean = true
             div.art
               div.a
                 - each r in tabimg
@@ -32,6 +33,7 @@ block content
   -each result in tabitem
     if result.attributes.id_list!=null
       if result.attributes.id_list == idliste
+        -boolean = true
         div.art
           div.a
             - each r in tabimg
@@ -45,6 +47,7 @@ block content
                 li='Acheter en magasin'
             li=result.attributes.desc
 
+
           form.ajout(method='POST', action='/delItemCree')
             input(type='hidden', name='id_liste', value=idliste)
             input(type='hidden', name='id_produit', value=result.attributes.id)
@@ -53,3 +56,10 @@ block content
   form(method='POST', action='/geneURL')
     input(type='hidden', name='id', value=idliste)
     input.btn(type='submit' value='Générer URL')
+
+  if boolean == true
+    form(method='POST', action='/geneURL')
+      input(type='hidden', name='id', value=idliste)
+      input.btn(type='submit' value='Générer URL')
+  else
+    p Aucun item présent dans cette liste.
