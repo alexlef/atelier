@@ -16,14 +16,17 @@ block content
           div= info.msg
 
 
-    form.form-style-9(action = '/reserveArticle?id_liste='+idliste+'&id_produit='+idproduit, method = 'POST')
+    form.form-style-9(action = '/reserveArticle', method = 'POST')
+            div
+              input(type='hidden', name='id_liste', value=idliste)
+              input(type='hidden', name='id_produit', value=idproduit)
+            div
+              label(for='nom') Votre nom :
+              input#nom(type='text' name="nom" required autofocus)
+            br
             div
               label(for='msgPrive') Message Privé :
               <textarea id="msgPrive" name="msgPrive" cols="35" wrap="soft"></textarea>
-            br
-            div
-              label(for='msgGlobal') Message Global :
-              <textarea id="msgGlobal" name="msgGlobal" cols="35" wrap="soft"></textarea>
             br
             div
               input(type='submit', value='Valider')

@@ -2,50 +2,59 @@ extends layout
 
 block content
   -each result in tabitem
-    -each res in tabapp
-        if result.attributes.id == res.attributes.id_item
-          if res.attributes.id_liste == idliste
-            div.art
-              div.a
-                - each r in tabimg
-                  if r.attributes.id_item == result.attributes.id
-                    img.i(src='img/'+r.attributes.nom)
-              ul.liste
-                li=result.attributes.nom
-                li='Prix : '+result.attributes.tarif+'€'
-                if res.attributes.url != null || res.attributes.url != ''
-                  a.lien(href=result.attributes.url)
-                    li='Acheter en magasin'
-                li=result.attributes.desc
 
+      -each res in tabapp
+          if result.attributes.id == res.attributes.id_item
+            if res.attributes.id_liste == idliste
+              div.art
+                div.a
+                  - each r in tabimg
+                    if r.attributes.id_item == result.attributes.id
+                      img.i(src='img/'+r.attributes.nom)
+                ul.liste
+                  li=result.attributes.nom
+                  li='Prix : '+result.attributes.tarif+'€'
+                  if res.attributes.url != null || res.attributes.url != ''
+                    a.lien(href=result.attributes.url)
+                      li='Acheter en magasin'
+                  li=result.attributes.desc
 
-              -each reserv in tabres
+                  -each reserv in tabres
+                    if(reserv.id_item == result.attributes.id)
+                      li= 'reservé par : ' + reserv.nom
+
+                -each reserv in tabres
                   if (reserv.id_item == result.attributes.id)
                     text.reserve
 
-              form.ajout(method='POST', action='/formReserv')
-                  input(type='hidden', name='id_liste', value=idliste)
-                  input(type='hidden', name='id_produit', value=result.attributes.id)
-                  input.reserve.adj.inp(type='submit' value='RESERVER')
+                form.ajout(method='POST', action='/formReserv')
+                    input(type='hidden', name='id_liste', value=idliste)
+                    input(type='hidden', name='id_produit', value=result.attributes.id)
+                    input.reserve.adj.inp(type='submit' value='RESERVER')
 
 
   -each result in tabitem
-    if result.attributes.id_list!=null
-      if result.attributes.id_list == idliste
-        div.art
-          div.a
-            - each r in tabimg
-              if r.attributes.id_item == result.attributes.id
-                img.i(src='img/'+r.attributes.nom)
-          ul.liste
-            li=result.attributes.nom
-            li='Prix : '+result.attributes.tarif+'€'
-            if result.attributes.url != null || result.attributes.url != ''
-              a.lien(href=result.attributes.url)
-                li='Acheter en magasin'
-            li=result.attributes.desc
 
-          -each reserv in tabres
+      if result.attributes.id_list!=null
+        if result.attributes.id_list == idliste
+          div.art
+            div.a
+              - each r in tabimg
+                if r.attributes.id_item == result.attributes.id
+                  img.i(src='img/'+r.attributes.nom)
+            ul.liste
+              li=result.attributes.nom
+              li='Prix : '+result.attributes.tarif+'€'
+              if result.attributes.url != null || result.attributes.url != ''
+                a.lien(href=result.attributes.url)
+                  li='Acheter en magasin'
+              li=result.attributes.desc
+
+              -each reserv in tabres
+                if(reserv.id_item == result.attributes.id)
+                  li= 'reservé par : ' + reserv.nom
+
+            -each reserv in tabres
               if (reserv.id_item == result.attributes.id)
                 text.reserve
 
@@ -60,17 +69,16 @@ block content
         li.nomCom=comm.nom
         li.msgCom=comm.msg
 
-  div.grille
-    div.row
-      div.col-8
-        form.form-style-9(action = '/addComm?id_liste='+idliste, method = 'POST')
+  form.form-style-9(action = '/addComm', method = 'POST')
+              div
+                input(type='hidden', name='idliste', value=idliste)
               div
                 label(for='nom') Votre nom :
-                input#nom(type='text' name="nom" required autofocus)
+                input#nom(type='text' name="nom" required )
               div
                 label(for='msgPrive') Message :
                 br
                 <textarea class="comm" name="msg" wrap="soft"></textarea>
                 br
               div
-                input(type='submit', value='Valider')
+                input(type='submit', value='Valider').btn
