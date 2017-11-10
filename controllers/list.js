@@ -142,7 +142,17 @@ exports.afflisteUrl = function(req, res) {
                     tabcomm : commentaire,
                     idliste : req.param('id_liste')
                   });
-                  }
+                  }else{
+                      res.render('listUrl',{
+                        title: 'Liste',
+                        tabapp : tab.models,
+                        tabitem : t.models,
+                        tabimg : ta.models,
+                        tabres : reserve,
+                        tabcomm : commentaire,
+                        idliste : req.param('id_liste')
+                      });
+                    }
                 }
               }
               else if(typeof liste[0].titre != 'undefined'){
