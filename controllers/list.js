@@ -127,8 +127,9 @@ exports.afflisteUrl = function(req, res) {
         Reserve.where('id_liste', req.param('id_liste')).query().select().then(function(reserve){
 
           Itemimg.fetchAll().then(function(ta){
+            console.log(liste[0].titre)
               if(req.cookies.datelimite==liste[0].titre){
-                console.log(liste[0].titre)
+
                 res.render('prop',{
                   title: 'Liste',
                   tabapp : tab.models,
